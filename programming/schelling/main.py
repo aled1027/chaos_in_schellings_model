@@ -16,11 +16,6 @@ class SchellingCA:
                 li.append(Person(preferences=preferences))
             self.state.append(li)
 
-
-    def iterate(self):
-        could_move = self.move_someone()
-        if (could_move == False):
-            self.is_done = True
     def move_someone(self):
         # find someone with who is unhappy.
         self.updatePeoplesStates()
@@ -42,24 +37,53 @@ class SchellingCA:
         return [self.state[x][y] for (x,y) in nbr_coords]
 
     def iterate(self):
+        # move someone
+
+        # now update everyone's happiness
         for i in range(self.width):
             for j in range(self.height):
                 nbr_races = [nbr.race for nbr in self.get_neighbors(i,j)]
                 nbr_dict = {r: nbr_races.count(r) for r in self.races}
                 self.state[i][j].update_happiness(nbr_dict)
 
+    #def run(self, max_iterations=10):
+        #for k in range(max_iterations):
+    # def get_amount_segregation(self):
 
 
+    def print_happiness(self):
+        string_list = []
+        for row in self.state:
+            string = ""
+            for person in row:
+                string = string + " " + str(person.is_happy)
+            string_list.append(string)
+
+        for string in string_list:
+            print string
 
 
+    def print_races(self):
+        string_list = []
+        for row in self.state:
+            string = ""
+            for person in row:
+                string = string + " " + str(person.race)
+            string_list.append(string)
 
+        for string in string_list:
+            print string
 
+    def print_state(self):
+        string_list = []
+        for row in self.state:
+            string = ""
+            for person in row:
+                string = string + " " + str(person)
+            string_list.append(string)
 
-
-
-    def get_amount_of_segregation():
-        pass
-
+        for string in string_list:
+            print string
 
 class Person:
     # prefernces of the form: {'white': (.2,.3)} indicates prefers more than 20% white neighbors, less than %30 white neighbors.
@@ -85,16 +109,15 @@ class Person:
             pct_race = nbr_dict[race] / num_nbrs
             lower_bound, upper_bound = self.preferences[race]
 
-            print(lower_bound, pct_race, upper_bound)
             if lower_bound <= pct_race <= upper_bound:
                 pass
             else:
                 # failed a condition. we are so unhappy
-                self.is_unhappy = False
+                self.is_happy = False
                 return False
 
         # passed all of the conditions, so we are happy.
-        self.is_unhappy = True
+        self.is_happy = True
         return True
 
 
