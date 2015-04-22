@@ -120,26 +120,32 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +2 readme.md
-badd +0 schelling/main.py
+badd +1 readme.md
+badd +1 schelling/main.py
 args readme.md schelling/main.py
-edit schelling/main.py
+edit readme.md
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
 argglobal
-edit schelling/main.py
-map <buffer> F :set foldmethod=indent
-map <buffer> \D ?def 
-map <buffer> \C ?class 
-map <buffer> \2 /def 
-map <buffer> \1 /class 
-inoremap <buffer> $f #--- PH ----------------------------------------------FP2xi
-inoremap <buffer> $p print 
-inoremap <buffer> $i import 
-inoremap <buffer> $r return 
+let s:cpo_save=&cpo
+set cpo&vim
+vmap <buffer> [] <Plug>(Markdown_MoveToPreviousSiblingHeader)
+vmap <buffer> [[ <Plug>(Markdown_MoveToPreviousHeader)
+nmap <buffer> [] <Plug>(Markdown_MoveToPreviousSiblingHeader)
+nmap <buffer> [[ <Plug>(Markdown_MoveToPreviousHeader)
+vmap <buffer> ]c <Plug>(Markdown_MoveToCurHeader)
+vmap <buffer> ]u <Plug>(Markdown_MoveToParentHeader)
+vmap <buffer> ][ <Plug>(Markdown_MoveToNextSiblingHeader)
+vmap <buffer> ]] <Plug>(Markdown_MoveToNextHeader)
+nmap <buffer> ]c <Plug>(Markdown_MoveToCurHeader)
+nmap <buffer> ]u <Plug>(Markdown_MoveToParentHeader)
+nmap <buffer> ][ <Plug>(Markdown_MoveToNextSiblingHeader)
+nmap <buffer> ]] <Plug>(Markdown_MoveToNextHeader)
+let &cpo=s:cpo_save
+unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
 setlocal autoindent
@@ -148,12 +154,12 @@ setlocal bufhidden=
 setlocal buflisted
 setlocal buftype=
 setlocal nocindent
-setlocal cinkeys=0{,0},0),:,!^F,o,O,e
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:XCOMM,n:>,fb:-
-setlocal commentstring=#%s
+setlocal comments=b:*,b:+,b:-,b:>
+setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -169,32 +175,33 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'python'
-setlocal filetype=python
+if &filetype != 'mkd'
+setlocal filetype=mkd
 endif
 setlocal foldcolumn=0
 setlocal foldenable
-setlocal foldexpr=0
+setlocal foldexpr=Foldexpr_markdown(v:lnum)
 setlocal foldignore=#
 setlocal foldlevel=0
 setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
+set foldmethod=syntax
+setlocal foldmethod=expr
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=tcq
+setlocal formatoptions=tqr
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=0
-setlocal include=^\\s*\\(from\\|import\\)
-setlocal includeexpr=substitute(v:fname,'\\.','/','g')
-setlocal indentexpr=GetPythonIndent(v:lnum)
-setlocal indentkeys=0{,0},:,!^F,o,O,e,<:>,=elif,=except
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetMkdIndent()
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=pydoc
+setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
 setlocal nolist
@@ -205,7 +212,7 @@ setlocal modifiable
 setlocal nrformats=octal,hex
 setlocal nonumber
 setlocal numberwidth=4
-setlocal omnifunc=pythoncomplete#Complete
+setlocal omnifunc=
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
@@ -218,19 +225,19 @@ setlocal noscrollbind
 setlocal shiftwidth=4
 setlocal noshortname
 setlocal nosmartindent
-setlocal softtabstop=4
+setlocal softtabstop=0
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
 setlocal statusline=%!airline#statusline(1)
-setlocal suffixesadd=.py
+setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
-if &syntax != 'python'
-setlocal syntax=python
+if &syntax != 'mkd'
+setlocal syntax=mkd
 endif
-setlocal tabstop=8
+setlocal tabstop=4
 setlocal tags=
 setlocal textwidth=0
 setlocal thesaurus=
@@ -239,8 +246,7 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 23) / 47)
+let s:l = 1 - ((0 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt

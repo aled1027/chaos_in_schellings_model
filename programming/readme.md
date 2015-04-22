@@ -1,10 +1,38 @@
+# other
+
 # todo schelling project
 - add in none as a race
-- measure segregation
 - if we are slow, only loop over the board once per iteration.
     - probably don't need to recalculate empty spaces every iteration. They change by 2 every iteration in veryt predictable way since one person moves. 
 - add in needs a neighbor to be happy
 - person who just wants their neighbors to be happy
+
+- https://www.coursera.org/course/modelthinking
+    - has a list of books/sources at bottom that might be useful
+- https://www.binpress.com/tutorial/introduction-to-agentbased-models-an-implementation-of-schelling-model-in-python/144
+    - moves person to empty spot without regard to whether they are happy there.
+
+
+        similarity_threshold_ratio = {}
+        for i in [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
+            schelling = Schelling(50, 50, 0.3, i, 500, 2)
+            schelling.populate()
+            schelling.update()
+            similarity_threshold_ratio[i] = schelling.calculate_similarity()
+        
+        fig, ax = plt.subplots()
+        plt.plot(similarity_threshold_ratio.keys(), similarity_threshold_ratio.values(), 'ro')
+        ax.set_title('Similarity Threshold vs. Mean Similarity Ratio', fontsize=15, fontweight='bold')
+        ax.set_xlim([0, 1])
+        ax.set_ylim([0, 1.1])
+        ax.set_xlabel("Similarity Threshold")
+        ax.set_ylabel("Mean Similarity Ratio")
+        plt.savefig('schelling_segregation_measure.png')
+
+                
+            
+
+-
 
 # paper
 The argument could be made that schelling's model doesn't model the migrations patterns of white and blacks in neighborhood because it neglects important pressures such as Imminent Domain, White Flight, changes in housing prices, parent's desire for good schools, closeness to work, and the list goes on. 
