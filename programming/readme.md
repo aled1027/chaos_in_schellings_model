@@ -1,4 +1,5 @@
 # other
+:set foldnestmax=2
 
 # todo schelling project
 - add in none as a race

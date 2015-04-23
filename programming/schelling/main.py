@@ -24,7 +24,7 @@ class SchellingCA:
         for i in range(self.width):
             for j in range(self.height):
                 if self.state[i][j] != None:
-                    nbr_races = [nbr.race for nbr in self.get_neighbors(i,j)]
+                    nbr_races = [nbr.race for nbr in self.get_neighbors(i,j,self.state[i][j].vision)]
                     nbr_dict = {r: nbr_races.count(r) for r in self.races}
                     cur_race = self.state[i][j].race
                     num_nbrs = sum(nbr_dict.values())
@@ -32,28 +32,22 @@ class SchellingCA:
                     if num_nbrs  == 0:
                         similarilty.append(1)
                     else:
-                        ratio = float( nbr_dict[cur_race] / num_nbrs )
+                        ratio = float(nbr_dict[cur_race]) / float(num_nbrs )
                         similarity.append(ratio)
-        average_similarity = sum(similarity)/len(similarity)
+        average_similarity = float(sum(similarity))/float(len(similarity))
         return average_similarity
 
-        """
-        similarity_threshold_ratio = {}
-        for i in [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
-            schelling = Schelling(50, 50, 0.3, i, 500, 2)
-            schelling.populate()
-            schelling.update()
-            similarity_threshold_ratio[i] = schelling.calculate_similarity()
+    def get_avg_happiness(self):
+        num_person = 0
+        happy_counter = 0
+        for i in range(self.width):
+            for j in range(self.height):
+                if self.state[i][j] != None:
+                    num_person += 1
+                    if self.state[i][j].is_happy == True:
+                        happy_counter += 1
+        return float(happy_counter) / float(num_person)
 
-        fig, ax = plt.subplots()
-        plt.plot(similarity_threshold_ratio.keys(), similarity_threshold_ratio.values(), 'ro')
-        ax.set_title('Similarity Threshold vs. Mean Similarity Ratio', fontsize=15, fontweight='bold')
-        ax.set_xlim([0, 1])
-        ax.set_ylim([0, 1.1])
-        ax.set_xlabel("Similarity Threshold")
-        ax.set_ylabel("Mean Similarity Ratio")
-        plt.savefig('schelling_segregation_measure.png')
-        """
 
     def update_states_and_sets(self):
         """
@@ -69,7 +63,7 @@ class SchellingCA:
                 if self.state[i][j] == None:
                     self.empty_positions.add((i,j))
                 else:
-                    nbr_races = [nbr.race for nbr in self.get_neighbors(i,j)]
+                    nbr_races = [nbr.race for nbr in self.get_neighbors(i,j,self.state[i][j].vision)]
                     nbr_dict = {r: nbr_races.count(r) for r in self.races}
                     self.state[i][j].update_happiness(nbr_dict)
 
@@ -97,7 +91,7 @@ class SchellingCA:
             print(self.empty_positions)
             while self.empty_positions:
                 new_x,new_y = self.empty_positions.pop()
-                nbr_races = [nbr.race for nbr in self.get_neighbors(new_x,new_y)]
+                nbr_races = [nbr.race for nbr in self.get_neighbors(new_x,new_y,self.state[old_x][old_y].vision)]
                 nbr_dict = {r: nbr_races.count(r) for r in self.races}
                 b = self.state[old_x][old_y].update_happiness(nbr_dict)
                 # would they be happy at (new_x,new_y)?
@@ -112,7 +106,7 @@ class SchellingCA:
             print('Did not move anyone')
         return did_move_someone
 
-    def get_neighbors(self,i,j):
+    def get_neighbors(self,i,j,vision=1):
         if i < 0:
              raise RuntimeError("Width %d Lower than number of cells. " %i)
         elif i >= self.width:
@@ -121,7 +115,9 @@ class SchellingCA:
              raise RuntimeError("Height %d Higher than number of cells. " %i)
         elif j >= self.height:
              raise RuntimeError("Height %d Higher than number of cells. " %i)
-        deltas = [(-1,0), (1,0), (0,-1), (0,1)]
+
+        v = vision
+        deltas = [(a,b) for a in range(-1*v,v+1) for b in range(-1*v,v+1) if abs(a)+abs(b) <= v and (a,b) != (0,0)]
         nbr_coords =  [(i+a, j+b) for (a,b) in deltas if (-1 < i+a < self.width) and (-1 < j+b < self.height)]
         return [self.state[x][y] for (x,y) in nbr_coords if self.state[x][y] is not None]
 
@@ -183,25 +179,28 @@ class SchellingCA:
 
 class Person:
     # preferences of the form: {'white': (.2,.3)} indicates prefers more than 20% white neighbors, less than %30 white neighbors.
-    def __init__(self, preferences={}, race='white', is_happy=False, races=['white','black']):
+    # vision measured in manhattan distance.
+    def __init__(self, preferences={}, race='white', is_happy=False, races=['white','black'], vision=1):
         self.race = race
         self.races = races
         self.is_happy = is_happy
         self.preferences = preferences
-
+        self.vision = vision
 
     def update_happiness(self,nbr_dict):
         num_nbrs = sum(nbr_dict.values())
         if num_nbrs == 0:
             return True
         for race in self.races:
-            pct_race = nbr_dict[race] / num_nbrs
+            pct_race = float(nbr_dict[race]) / float(num_nbrs)
             lower_bound, upper_bound = self.preferences[race]
-
             if not (lower_bound <= pct_race <= upper_bound):
                 # failed a condition. we are so unhappy
                 self.is_happy = False
                 return False
+        self.is_happy = True
+        return True
+
 
     def strall(self):
         return "(Race: "+self.race + ", is_happy:" + str(self.is_happy) + ", preferences:" + str(self.preferences) + ")"
@@ -255,7 +254,6 @@ def config_mixed(width=8,height=8):
     ret[7][7] = None
     return ret
 
-
 def config_all_white_all_happy(width=8,height=8):
     always_happy = {'white' : (0,1), 'black' : (0,1)}
     ret = []
@@ -276,7 +274,29 @@ def config_all_black_all_happy(width=8,height=8):
         ret.append(li)
     return ret
 
-def config_random(num_people,width=8,height=8):
+def config_random(width=8,height=8):
+    # approximately fills with 1/3 people
+    v = 5
+    ret = []
+    for i in range(width):
+        li = []
+        for j in range(height):
+            r = random.randint(1,3)
+            if r == 1:
+                rs = sorted([random.random() for _ in range(2)])
+                prefs = {'white' : (0,rs[1]), 'black' : (0,rs[0])}
+                li.append(Person(preferences=prefs, race='white',vision=v))
+            elif r == 2:
+                rs = sorted([random.random() for _ in range(2)])
+                prefs = {'black' : (0,rs[1]), 'white' : (0,rs[0])}
+                li.append(Person(preferences=prefs, race='black',vision=v))
+            else:
+                li.append(None)
+        ret.append(li)
+    return ret
+
+def config_random2(width=8,height=8):
+    # approximately fills with 1/3 people
     ret = []
     for i in range(width):
         li = []
@@ -284,19 +304,41 @@ def config_random(num_people,width=8,height=8):
             r = random.randint(1,3)
             if r == 1:
                 rs = sorted([random.random() for _ in range(4)])
-                prefs = {'white' : (r[2],r[4]), 'black' : (r[1],r[3])}
+                prefs = {'white' : (rs[1],rs[3]), 'black' : (rs[0],rs[2])}
                 li.append(Person(preferences=prefs, race='white'))
             elif r == 2:
                 rs = sorted([random.random() for _ in range(4)])
-                prefs = {'black' : (r[2],r[4]), 'white' : (r[1],r[3])}
+                prefs = {'black' : (rs[1],rs[3]), 'white' : (rs[0],rs[2])}
                 li.append(Person(preferences=prefs, race='black'))
             else:
                 li.append(None)
         ret.append(li)
     return ret
 
-s = SchellingCA(width=8,height=8, state=config1())
-t = SchellingCA(width=8,height=8, state=config_all_white_all_happy())
-u = SchellingCA(width=8,height=8, state=config_all_black_all_happy())
-v = SchellingCA(width=8,height=8, state=config_mixed())
-w = SchellingCA(width=8,height=8, state=config_random(int(64/3)))
+def config_fav(width=8,height=8):
+    # approximately fills with 1/3 people
+    v = 2
+    rs = [.2,.8,.2,.8]
+    ret = []
+    for i in range(width):
+        li = []
+        for j in range(height):
+            r = random.randint(1,3)
+            if r == 1:
+                prefs = {'white' : (rs[0],rs[1]), 'black' : (rs[2],rs[3])}
+                li.append(Person(preferences=prefs, race='white',vision=v))
+            elif r == 2:
+                prefs = {'white' : (rs[0],rs[1]), 'black' : (rs[2],rs[3])}
+                li.append(Person(preferences=prefs, race='black',vision=v))
+            else:
+                li.append(None)
+        ret.append(li)
+    return ret
+
+# s = SchellingCA(width=8,height=8, state=config1())
+# t = SchellingCA(width=8,height=8, state=config_all_white_all_happy())
+# u = SchellingCA(width=8,height=8, state=config_all_black_all_happy())
+# v = SchellingCA(width=8,height=8, state=config_mixed())
+# w = SchellingCA(width=8,height=8, state=config_random())
+y = SchellingCA(width=8,height=8, state=config_fav())
+print(y.get_avg_happiness())
