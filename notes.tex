@@ -1,0 +1,230 @@
+\documentclass[11pt]{article}
+\usepackage{/home/alex/.latex/stylesheet}
+
+\title{Notes on Schelling's Model}
+\author{Alex Ledger}
+% \date{}
+\newcommand{\e}{\epsilon}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Mark's Advice}
+    \begin{enumerate}
+        \item Try to answer some philosophical question:
+            \begin{enumerate}
+                \item To what extent can a simple model explain the real world?
+                    \begin{enumerate}
+                        \item What is life
+                        \item Is life complex?
+                        \item phase transitions?
+                        \item Is the behavior of the model exhibited in the real world?
+                    \end{enumerate}
+                \item What kinds of emergence are possible?
+            \end{enumerate}
+    \end{enumerate}
+
+\section{Is the world chaotic}
+    \subsection{My Paper}
+        \begin{enumerate}
+            \item Question: Is life Chaotic?
+            \item Proposed methodology: 
+                Explore a simple system that is a simplification of life.
+                \begin{enumerate}
+                    \item 
+                        Tests to run:
+                        \begin{enumerate}
+                            \item Sensitivity to inital conditions:
+                                \begin{enumerate}
+                                    \item Calculate Lyapunov's exponent.
+                                \end{enumerate}
+                            \item Boundedness
+                                \begin{enumerate}
+                                    \item Start model in 8x8 circle. See if model ever hits the 20x20 circle.
+                                    \item Wouldn't really work because agents move to random spots within the model.
+                                    \item Perhaps change model such that agents only move within some function of their vision? That would only make the model more realistic.
+                                    \item `
+                                    \item interesting because no birthing. 
+                                    \item Jacob's example of cleveland. See if we can reproduce.
+                                    \item Try on torus. See what happens.
+                                \end{enumerate}
+                            \item Is it predictable?
+                                \begin{enumerate}
+                                    \item See if a neural net or other machine learning can predict.
+                                \end{enumerate}
+                        \end{enumerate}
+                \end{enumerate}
+            \item The model I constructed is very similar to Schelling's model:
+                \begin{enumerate}
+                    \item 2 races.
+                    \item On a lattice structure.
+                    \item I select the unhappy person based on a uniform random dist'n.
+                    \item Unhappy persons move to a new spot where they are certain to be happy; they do not move if they would be unhappy there.
+                    \item Parameters:
+                        \begin{enumerate}
+                            \item size of space: width and height
+                            \item vision
+                            \item racial preferences
+                            \item number of agents:
+                                \begin{enumerate}
+                                    \item ratio white to black people
+                                    \item ratio people to size of space
+                                \end{enumerate}
+                        \end{enumerate}
+                \end{enumerate}
+            \item Important points about Schelling's Model:
+                \begin{enumerate}
+                    \item Wolfram class?
+                    \item Turing Complete?
+                    \item Behavior exhibited in the real world?
+                    \item Local behavior?
+                    \item Weak Emergence?
+                    \item Self-Organization?
+                \end{enumerate}
+        \end{enumerate}
+
+    \subsection{My thoughts}
+        \begin{enumerate}
+            \item Address the question: Is the world chaotic?
+            \item Chaos has various definitions:
+                \begin{enumerate}
+                    \item Sensitivity to initial conditions
+                    \item Stochastic in nature
+                    \item Random result
+                    \item Weak emergence
+                \end{enumerate}
+            \item I want to explore the notion of weak chaos. 
+            \item The intuition behind weak chaos is that...
+        \end{enumerate}
+    \subsection{Wolfram Paper}
+        \begin{enumerate}
+            \item Direct mathematical analysis of 2D-CA is of little help
+            \item Resort direct simulation and random sampling.
+            \item Class 1,2,3,4
+            \item http://ncase.me/polygons/
+            % \item http://ncase.me/polygons/play/automatic/automatic_sandbox.html
+            \item http://www.timswast.com/blog/2013/03/31/an-exploration-of-cellular-automata-as-dynamical-systems/
+            \item http://bactra.org/notebooks/cellular-automata.html
+            \item https://class.coursera.org/modelthinking/lecture
+            \item http://www.math.tamu.edu/~mpilant/math614/
+            % \item http://mpeg.math.tamu.edu/home/mpilant/Math614/lecture12_raw/lecture12_raw.html
+            \item Notes from lecture:
+                \begin{enumerate}
+                    \item Some definition of dimension:
+                    \item Define orbit $\{x_i\}_{i=1}^N$.
+                    \item not that if $i \neq j$ then $x_i \neq x_j$ because consdiering noperiodic orbital
+                    \item In an orbit: define $val1 = \# \{ (x_i,x_j) \mid d(x_i,x_j) < \epsilon, i \neq j\}$. 
+                    \item $ val2 = \# \{(x_i, x_j) \mid  i \neq j\} =  \frac{N(N+1)}{2}$
+                    \item ratio = $c(\epsilon) = \frac{val1}{val2}$
+                    \item $\epsilon \to \infty \implies c(\epsilon) \to 1$. 
+                    \item $\epsilon \to 0 \implies c(\epsilon) \to 0$. 
+                    \item correlation exponent = $\alpha = \lim_{\epsilon \to 0} |\frac{\ln c(\epsilon) }{\ln \epsilon}|$
+                    \item Correlation exponent defined in terms of orbit; not the space. 
+                    \item Therefore the correlation exponent is easy to calculate. 
+                    \item Loop over $N(N+1)/2$ pairs of $x_i, x_j$ where $i \neq j$. 
+                    \item calculate $d(x_i, x_j)$. If $dist < \epsilon$, increment counter
+                    \item implies $n^2$ operations. implies very efficient. 
+                    \item $N(\epsilon) = $number of boxes of width $\epsilon$ that contain a point in orbit.
+                    \item define $\alpha$ the same way for $N(\epsilon)$.
+                    \item Haussdorff Dimension
+                    \item given set $S$. cover with balls of diamter $\e$. 
+                    \item define $H_m(S) = \lim_{\e \to 0} \sum_{\text{number balls}}(\e)^m$
+                    \item example curve of length $L$ takes $L/\e$ balls of diamter $\e$ so $H_1(S) = \lim (L/\e) \e = L$. 
+                    \item $H_2(S) = \lim (L/\e)\e^2 = 0$.
+                    \item So Haussdorf dimension = largest $d$ such that $H_d(S) \neq 0$. 
+                    \item equivalent to smallest $d$ such that $H_d(S) = 0$. 
+                    \item expensive to compute. 
+                \end{enumerate}
+                \begin{enumerate}
+                    \item Question: when is an orbit chaotic?
+                    \item Take finite orbit $\{x_i\}_i^N$.  and orbit $z_i$
+                    \item $d(x(t), z(t)) \sim d_o e^{\alpha t} \implies$ chaotic if $\alpha > 0$. 
+                    \item Lyapunov exponent = $\alpha = \frac{1}{1} \ln |\frac{x(t) - z(t)}{x_0 - z_0}|$
+                    \item Different orbits can have different exponents. 
+                    \item Also might be dependent on component/dimension that you are looking (x-component verse y-component)
+                    \item Wolf Algorithm (1983) for computing approximate lyapunov exponents of an orbit:
+                        \begin{enumerate}
+                            \item Pick initial point $x_0$. 
+                            \item Iterate till close to attractor. Say choose $N >> 1$ 
+                            \item Fix $x_N$, find another point $(x_m)$ in the orbit such that $x_m$ is close to $x_N$. i.e. $d(x_m, x_N) \sim 10^4 \epsilon$ where $\e$ is machine $\e$ i.e. smalleest floating point number. 
+                            \item i.e. $\e = 10^{-16}$ in double precision. $10^{-8}$ in single precision. 
+                            \item do stuff with sequences. slide 10/11
+                        \end{enumerate}
+                \end{enumerate}
+        \end{enumerate}
+
+\section{Thesis}
+
+Introduction
+\begin{enumerate}
+\item Check out sugarscape model.j
+    \begin{enumerate}
+        \item An agent based model for Schelling
+        \item from 1969. There exists java implementations somewhere. 
+    \end{enumerate}
+\item Bak et al. use statistical mechanics upon he self-organized systems.
+\item Bak: global emergent properties have the property that they are scale-free. 
+\item Author follows that with the claim: Therefore we can use global emergent properties to measure the system.
+\item Zhang uses Game Theory to model Schelling' Model
+\item each agent has fixed income. each agent has $\pi$ that correlates to the happiness of an agent.
+\item Gives locations a price, number white nbrs, number black nbrs. Then uses simply supply and demand to determine prices 
+\item page 21 discusses some research on Schelling's model
+\item Schelling focuses on preferences of agents
+\item other research on the neighborhood of agents,up to a distance $R$, calling this parameter an agent's vision
+\item Herb Simon's 'situated ant'
+\item An ant following a random walk on a beach produces a complex path. But it is the complexity of the environment that is creating the complex path rather than the ant
+\item So complexity of environment is as important as complexity of individual. 
+\item My Analysis of section:
+    \begin{enumerate}
+        \item Author points out a variety of systems:
+            \begin{enumerate}
+                \item Agent Based Model (sugarscape)
+                \item Statistical Mechanics (sandpiles)
+                \item Game Theory (Zhang's Model with happiness and incomes)
+                \item Complex Environment verse Complex Ant
+            \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{On Schelling}
+    \begin{enumerate}
+        \item Three models:
+        \item Spatial Proximity Model
+        \item Bounded Neighborhood Model = characters consider proportions within system rather than in a local neighborhood of the system. 
+        \item Tipping Model
+        \item Author says Schelling's Models too simplistic to model real world
+        \item Author says need to make environment more complex
+    \end{enumerate}
+
+\subsection{Further Work}
+    \begin{enumerate}
+        \item Heterogenous Populations: explore different types within population. (e.g. each white person has a different race tolerance)
+        \item Space: Explore nonuniform spaces. Change perceptions of Space
+            \begin{enumerate}
+                \item This is done to some extent in the thesis. 
+                \item The author explores a model where agents have a random variable for their "vision", i.e. they can see all neighbors with $r$ spaces from them where $r$ is a random variable. 
+            \end{enumerate}
+        \item Timescales: Explore the effects of agents moving at different timescales, either individually or by type.
+        \item Time decay (or growth) for social bonds: would a social bond that decayed (or strengthened) over time affect the results of the model?
+        \item Ratio Calculations: Instead of agents recalculating ratio every iteration, only calculate it every once in a while.
+        \item \textbf{Population Adaptation: have the population change over time. This turns Schelling's model into an evolutionary model}
+        \item Little work on Bounded Neighborhood Model
+        \item Stoica and Flache apply Schelling's residential segregation to school segregation by incorporating Zhang's utility (measuring distance from a school instead of price)
+    \end{enumerate}
+
+% \section{Bedau}
+% Hallmarks of emergent phenomena according to Bedau are:
+% \begin{enumerate}
+% 	\item constituted by and generated from underlying process
+% 	\item autonomous from the underlying process
+% \end{enumerate}
+% Weak Emergence as defined by Bedau
+% \begin{enumerate}
+% 	\item weak emergence: we need to simulate in order to see the weakly emergent property; otherwise, we couldn't know if the property exists. 
+% 	\item "There is no question that every event and pattern of activity found in Life, no matter how extended in space and time and no matter how complicated is generated from the system's (Game of Life) microsystem"
+% \end{enumerate}
+
+
+\end{document}  

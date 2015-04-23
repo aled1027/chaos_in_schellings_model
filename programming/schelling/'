@@ -342,37 +342,16 @@ def config_fav(width=8,height=8):
 # w = SchellingCA(width=8,height=8, state=config_random())
 # y = SchellingCA(width=8,height=8, state=config_fav())
 
-
-def loop():
-    # approx 5-10 seconds
-
+def main():
+    s = SchellingCA(width=8,height=8, state=config_fav())
     width = 8
     height = 8
     state = [[None]*width]*height
-    small = 30
-    big = 60
-    for v in [1,2,5,10]:
-        for p1 in range(10,big,10):
-            for p2 in range(p1,big,10):
-                for p3 in range(small,big,10):
-                    for p4 in range(p3,big,10):
-                        for q1 in range(small,big,10):
-                            for q2 in range(q1,big,10):
-                                for q3 in range(small,big,10):
-                                    for q4 in range(q3,100,10):
-                                        for _ratio in range(0,10,1):
-                                            print(v)
-                                            white_prefs = {'white': (p1,p2), 'black': (p3,p4)}
-                                            pers =  Person(preferences=white_prefs,race='white',vision=v)
-                                            s = SchellingCA(width=8,height=8, state=config_fav())
-
-def main():
-    #s = SchellingCA(width=8,height=8, state=config_fav())
 
 
     for v1 in range(1,11):
 
-        # number of loops: 10 *10^4 * 10^4 * 10
+        10 *10^4 * 10^4 * 10
         print(v1)
         for v2 in range(1,11):
             for p1 in range(0,100,10):
