@@ -8,46 +8,66 @@ class SchellingCA:
     unhappy_positions = set()
     happy_positions = set()
 
-    def __init__(self, width=8, height=8, races=['white','black'], state=None):
+    def __init__(self, width=8, height=8, races=None, state=None):
+        self.races = races if races else ['white','black']
+        self.state = state if state else [[None]*self.width]*self.height
         self.width = width
         self.height = height
-        self.races = races
-        if state:
-            self.state = state
-        else:
-            self.state = [[None]*self.width]*self.height
         self.update_states_and_sets()
 
-    def get_avg_similarity(self):
+    def __repr__(self):
+        return "%d by %d; agents: %d; agents unhappy: %d; avg happiness: %d; avg similiarity: %d" \
+                % (self.width, self.height, len(self.unhappy_positions) + len(self.happy_positions), \
+                    len(self.unhappy_positions), self.avg_happiness, self.avg_similarity)
+
+    def __len__(self):
+        return self.width * self.height
+
+    def __getitem__(self, index):
+        # treat index as moving across rows first, and then columns
+        # i.e index = width_index + self.height*height_index
+        if index >= len(self):
+            raise IndexError
+
+        width_index = index % self.height
+        height_index = (index - width_index) / self.height
+        return self.state[width_index][height_index]
+
+    def test(self):
+        for i,j in enumerate(self):
+            print i,j
+
+    @property
+    def avg_similarity(self):
         # calculates average similarity ratio
         similarity = []
-        for i in range(self.width):
-            for j in range(self.height):
-                if self.state[i][j] != None:
-                    nbr_races = [nbr.race for nbr in self.get_neighbors(i,j,self.state[i][j].vision)]
-                    nbr_dict = {r: nbr_races.count(r) for r in self.races}
-                    cur_race = self.state[i][j].race
-                    num_nbrs = sum(nbr_dict.values())
+        for index,cell in enumerate(self):
+            i = index % self.height
+            j = (index - i) / self.height
+            if cell != None:
+                nbr_races = [nbr.race for nbr in self.get_neighbors(i, j, cell.vision)]
+                nbr_dict = {race: nbr_races.count(race) for race in self.races}
+                cur_race = cell.race
+                num_nbrs = sum(nbr_dict.values())
 
-                    if num_nbrs  == 0:
-                        similarilty.append(1)
-                    else:
-                        ratio = float(nbr_dict[cur_race]) / float(num_nbrs )
-                        similarity.append(ratio)
+                if num_nbrs  == 0:
+                    similarity.append(1)
+                else:
+                    ratio = float(nbr_dict[cur_race]) / float(num_nbrs )
+                    similarity.append(ratio)
         average_similarity = float(sum(similarity))/float(len(similarity))
         return average_similarity
 
-    def get_avg_happiness(self):
+    @property
+    def avg_happiness(self):
         num_person = 0
         happy_counter = 0
-        for i in range(self.width):
-            for j in range(self.height):
-                if self.state[i][j] != None:
-                    num_person += 1
-                    if self.state[i][j].is_happy == True:
-                        happy_counter += 1
+        for cell in self:
+            if cell != None:
+                num_person += 1
+                if cell.is_happy == True:
+                    happy_counter += 1
         return float(happy_counter) / float(num_person)
-
 
     def update_states_and_sets(self):
         """
@@ -57,22 +77,22 @@ class SchellingCA:
             - self.unhappy_positions
             - self.happy_positions
         """
+        for index,cell in enumerate(self):
+            i = index % self.height
+            j = (index - i) / self.height
+            if cell == None:
+                self.empty_positions.add((i,j))
+            else:
+                nbr_races = [nbr.race for nbr in self.get_neighbors(i, j, cell.vision)]
+                nbr_dict = {race: nbr_races.count(race) for race in self.races}
+                cell.update_happiness(nbr_dict)
 
-        for i in range(self.width):
-            for j in range(self.height):
-                if self.state[i][j] == None:
-                    self.empty_positions.add((i,j))
+                if (cell.is_happy == True):
+                    self.happy_positions.add((i,j))
+                    self.unhappy_positions.discard((i,j))
                 else:
-                    nbr_races = [nbr.race for nbr in self.get_neighbors(i,j,self.state[i][j].vision)]
-                    nbr_dict = {r: nbr_races.count(r) for r in self.races}
-                    self.state[i][j].update_happiness(nbr_dict)
-
-                    if (self.state[i][j].is_happy == True):
-                        self.happy_positions.add((i,j))
-                        self.unhappy_positions.discard((i,j))
-                    else:
-                        self.unhappy_positions.add((i,j))
-                        self.happy_positions.discard((i,j))
+                    self.unhappy_positions.add((i,j))
+                    self.happy_positions.discard((i,j))
 
     def move_someone(self):
         """
@@ -84,7 +104,7 @@ class SchellingCA:
         """
         if self.unhappy_positions:
             # 1. pick an unhappy person at random.
-            old_x, old_y = mover_origin = self.unhappy_positions.pop()
+            old_x, old_y = self.unhappy_positions.pop()
             did_move_someone = False
 
             # 2. move them to a new position; such that they are happey
@@ -94,14 +114,14 @@ class SchellingCA:
                 nbr_races = [nbr.race for nbr in self.get_neighbors(new_x,new_y,self.state[old_x][old_y].vision)]
                 nbr_dict = {r: nbr_races.count(r) for r in self.races}
                 b = self.state[old_x][old_y].update_happiness(nbr_dict)
+
                 # would they be happy at (new_x,new_y)?
                 if (self.state[old_x][old_y].update_happiness(nbr_dict) == True):
-                    # then put 'em there
-                    # is this swapping working?
                     print('moving from (%d,%d) to (%d,%d)' % (old_x,old_y,new_x,new_y))
                     self.state[old_x][old_y],self.state[new_x][new_y] =  self.state[new_x][new_y], self.state[old_x][old_y]
                     did_move_someone = True
                     break
+
         if did_move_someone is False:
             print('Did not move anyone')
         return did_move_someone
@@ -180,24 +200,28 @@ class SchellingCA:
 class Person:
     # preferences of the form: {'white': (.2,.3)} indicates prefers more than 20% white neighbors, less than %30 white neighbors.
     # vision measured in manhattan distance.
-    def __init__(self, preferences={}, race='white', is_happy=False, races=['white','black'], vision=1):
+    def __init__(self, preferences=None, race='white', is_happy=False, races=None, vision=1):
+        self.races = races if races else ['white','black']
+        self.preferences = preferences if preferences else {}
         self.race = race
-        self.races = races
         self.is_happy = is_happy
         self.preferences = preferences
         self.vision = vision
 
     def update_happiness(self,nbr_dict):
-        num_nbrs = sum(nbr_dict.values())
-        if num_nbrs == 0:
+        num_neighbors = sum(nbr_dict.values())
+
+        if num_neighbors == 0:
             return True
+
         for race in self.races:
-            pct_race = float(nbr_dict[race]) / float(num_nbrs)
+            pct_race = float(nbr_dict[race]) / float(num_neighbors)
             lower_bound, upper_bound = self.preferences[race]
             if not (lower_bound <= pct_race <= upper_bound):
                 # failed a condition. we are so unhappy
                 self.is_happy = False
                 return False
+
         self.is_happy = True
         return True
 
@@ -213,9 +237,6 @@ class Person:
 
     def __repr__(self):
         return str(self)
-
-    def set_happiness(self,is_happy):
-        self.is_happy = is_happy
 
 def config1(width=8,height=8):
     always_happy = {'white' : (0,1), 'black' : (0,1)}
@@ -405,7 +426,8 @@ def main():
                                                             state[p[0]][p[1]] = pers
 
 
-
+s = SchellingCA(width=8,height=8, state=config_fav())
+print(s)
 
 
 
