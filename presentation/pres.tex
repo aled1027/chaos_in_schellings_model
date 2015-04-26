@@ -5,9 +5,6 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \graphicspath{ {./images/} }
-\usepackage{color}
-
-
 
 \mode<presentation> {
     \usetheme{default}
@@ -15,7 +12,6 @@
     \setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
     \setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
-
 
 \title[Short title]{Investigating Chaos in Schelling's Model} % The short title appears at the bottom of every slide, the full title is only on the title page
 \author{Alex Ledger} % Your name
@@ -167,12 +163,31 @@ Reed College \\ % Your institution for the title page
             \begin{itemize}
                 \item (picture a chessboard)
             \end{itemize}
-        \item Each type of person has a preference for who they like to live by.
+        \item Each type of person has a preference for who they like to live near.
         \item If a person's preferences are not met, then they are unhappy.
         \item During each iteration of the model, one unhappy person is randomly selected.
         \item Then that person moves to a random, empty space such that they are happy.
     \end{enumerate}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Schelling's Model}
+    Fixed Parameters to Schelling's Model
+    \begin{enumerate}
+        \item Two races
+        \item Lattice, checkerboard space
+        \item Selecting a person to move randomly
+    \end{enumerate}
+    Variable Parameters to Schelling's Model
+    \begin{enumerate}
+        \item Vision radius (TODO add figure)
+        \item Moving radius (TODO add figure)
+        \item Selection of who gets to move
+        \item Size of board
+        \item Edge behavior of board (true edges vs. torus) (TODO add figure)
+    \end{enumerate}
+\end{frame}
+
 
 \begin{frame}
     \frametitle{Justification for Using Schelling's Model}
