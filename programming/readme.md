@@ -1,12 +1,10 @@
-# other
-:set foldnestmax=2
 
-# todo schelling project
-- add in none as a race
+# TODO
+- add identifier to Person class so we can see how and where people move.
+- check that the move_someone method actually works
 - if we are slow, only loop over the board once per iteration.
     - probably don't need to recalculate empty spaces every iteration. They change by 2 every iteration in veryt predictable way since one person moves. 
-- add in needs a neighbor to be happy
-- person who just wants their neighbors to be happy
+
 
 - https://www.coursera.org/course/modelthinking
     - has a list of books/sources at bottom that might be useful
@@ -83,3 +81,6 @@ If the world is chaotic, why is it chaotic?
 
 
 
+# other
+
+:set foldnestmax=2
