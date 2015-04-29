@@ -120,10 +120,11 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +1 ca.py
-badd +1 configs.py
 badd +0 main.py
-args ca.py configs.py main.py
+badd +0 ca.py
+badd +0 configs.py
+badd +0 schelling.log
+args main.py ca.py configs.py schelling.log
 edit main.py
 set splitbelow splitright
 set nosplitbelow
@@ -131,7 +132,6 @@ set nosplitright
 wincmd t
 set winheight=1 winwidth=1
 argglobal
-edit main.py
 map <buffer> F :set foldmethod=indent
 map <buffer> \D ?def 
 map <buffer> \C ?class 
@@ -196,7 +196,7 @@ setlocal indentexpr=GetPythonIndent(v:lnum)
 setlocal indentkeys=0{,0},:,!^F,o,O,e,<:>,=elif,=except
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
+setlocal keywordprg=pydoc
 setlocal nolinebreak
 setlocal nolisp
 setlocal nolist
@@ -220,7 +220,7 @@ setlocal noscrollbind
 setlocal shiftwidth=4
 setlocal noshortname
 setlocal nosmartindent
-setlocal softtabstop=0
+setlocal softtabstop=4
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
@@ -232,7 +232,7 @@ setlocal synmaxcol=3000
 if &syntax != 'python'
 setlocal syntax=python
 endif
-setlocal tabstop=4
+setlocal tabstop=8
 setlocal tags=
 setlocal textwidth=0
 setlocal thesaurus=
@@ -241,11 +241,11 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 22) / 45)
+let s:l = 22 - ((21 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+22
 normal! 0
 tabnext 1
 if exists('s:wipebuf')

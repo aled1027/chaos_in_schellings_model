@@ -100,25 +100,3 @@ def config_random2(width=8,height=8):
         ret.append(li)
     return ret
 
-def config_fav(width=8,height=8):
-    # approximately fills with 1/3 people
-    v = 2
-    rs = [.2,.8,.2,.8]
-    # rs = [0,1,0,1]
-    ret = []
-    for i in range(width):
-        li = []
-        for j in range(height):
-            r = random.randint(1,3)
-            if r == 1:
-                prefs = {'white' : (rs[0],rs[1]), 'black' : (rs[2],rs[3])}
-                li.append(Person(preferences=prefs, race='white',vision=v))
-            elif r == 2:
-                prefs = {'white' : (rs[0],rs[1]), 'black' : (rs[2],rs[3])}
-                li.append(Person(preferences=prefs, race='black',vision=v))
-            else:
-                li.append(None)
-        ret.append(li)
-    return ret
-
-

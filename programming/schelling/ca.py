@@ -79,9 +79,11 @@ class SchellingCA:
         logging.info('ca.py: update_states_and_sets')
         for index,cell in enumerate(self):
             i = index % self.height
-            j = (index - i) / self.height
+            j = int((index - i) / self.height)
             if cell == None:
                 self.empty_positions.add((i,j))
+                self.unhappy_positions.discard((i,j))
+                self.happy_positions.discard((i,j))
             else:
                 nbr_races = [nbr.race for nbr in self.get_neighbors(i, j, cell.vision)]
                 nbr_dict = {race: nbr_races.count(race) for race in self.races}
@@ -161,7 +163,8 @@ class SchellingCA:
         3. Update everyone else's happiness.
         This aspect could be made more efficient by only updating people within the vision origin and destination of moved person.
         """
-        if (self.move_someone() == False):
+        did_move = self.move_someone()
+        if (did_move == False):
             self.is_done = True
             return False
         self.update_states_and_sets()
@@ -210,15 +213,17 @@ class SchellingCA:
             print(string)
 
 class Person:
+    # pk is personal key = a personal identifying number
     # preferences of the form: {'white': (.2,.3)} indicates prefers more than 20% white neighbors, less than %30 white neighbors.
     # vision measured in manhattan distance.
-    def __init__(self, preferences=None, race='white', is_happy=False, races=None, vision=1):
+    def __init__(self, preferences=None, race='white', is_happy=False, races=None, vision=1, pk=0):
         self.races = races if races else ['white','black']
         self.preferences = preferences if preferences else {}
         self.race = race
         self.is_happy = is_happy
         self.preferences = preferences
         self.vision = vision
+        self.pk = pk
 
     def update_happiness(self,nbr_dict):
         num_neighbors = sum(nbr_dict.values())
@@ -242,7 +247,7 @@ class Person:
         return "(Race: "+self.race + ", is_happy:" + str(self.is_happy) + ", preferences:" + str(self.preferences) + ")"
 
     def strsmall(self):
-        return self.race + " " + str(self.is_happy)
+        return str(self.pk) + ' ' + self.race + ' ' + str(self.is_happy)
 
     def __str__(self):
         return self.strsmall()
