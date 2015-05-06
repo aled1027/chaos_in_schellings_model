@@ -1,0 +1,125 @@
+	ses.vim	/^map  :CtrlPBuffer$/;"	m
+	ses.vim	/^nmap  <Plug>SlimeParagraphSend$/;"	m
+v	ses.vim	/^nmap v <Plug>SlimeConfig$/;"	m
+	ses.vim	/^nnoremap <silent>  :CtrlP$/;"	m
+S	ses.vim	/^imap S <Plug>ISurround$/;"	m
+s	ses.vim	/^imap s <Plug>Isurround$/;"	m
+	ses.vim	/^nnoremap  $/;"	m
+	ses.vim	/^nnoremap   za$/;"	m
+	ses.vim	/^vnoremap   zf$/;"	m
+	ses.vim	/^nnoremap  $/;"	m
+	ses.vim	/^nnoremap  $/;"	m
+	ses.vim	/^nnoremap <silent>  :YRReplace '1', 'p'$/;"	m
+	ses.vim	/^nnoremap <silent>  :YRReplace '-1', 'P'$/;"	m
+	ses.vim	/^imap  <Plug>Isurround$/;"	m
+	ses.vim	/^nnoremap  :call GotoFile("new")$/;"	m
+f	ses.vim	/^nnoremap f :call GotoFile("new")$/;"	m
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+$f	ses.vim	/^inoremap <buffer> $f #--- PH ----------------------------------------------FP2xi$/;"	m
+$i	ses.vim	/^inoremap <buffer> $i import $/;"	m
+$p	ses.vim	/^inoremap <buffer> $p print $/;"	m
+$r	ses.vim	/^inoremap <buffer> $r return $/;"	m
+0	ses.vim	/^nmap 0 ^$/;"	m
+0	ses.vim	/^normal! 0$/;"	m
+0	ses.vim	/^vmap 0 ^$/;"	m
+<NL>	ses.vim	/^nnoremap <NL> <NL>$/;"	m
+<Plug>CommentaryUndo	ses.vim	/^nmap <silent> <Plug>CommentaryUndo <Plug>Commentary<Plug>Commentary$/;"	m
+<Plug>NetrwBrowseX	ses.vim	/^nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)$/;"	m
+<Plug>SurroundRepeat	ses.vim	/^nnoremap <silent> <Plug>SurroundRepeat .$/;"	m
+<SNR>55_yrrecord	ses.vim	/^inoremap <silent> <SNR>55_yrrecord =YRRecord3()$/;"	m
+<SNR>55_yrrecord	ses.vim	/^nnoremap <silent> <SNR>55_yrrecord :call YRRecord3()$/;"	m
+F	ses.vim	/^map <buffer> F :set foldmethod=indent$/;"	m
+P	ses.vim	/^nnoremap <silent> P :YRPaste 'P'$/;"	m
+Person	ca.py	/^class Person:$/;"	c
+SchellingCA	ca.py	/^class SchellingCA:$/;"	c
+SessionLoad	ses.vim	/^let SessionLoad = 1$/;"	v
+Si	ses.vim	/^vmap Si S(i_f)$/;"	m
+\1	ses.vim	/^map <buffer> \\1 \/class $/;"	m
+\2	ses.vim	/^map <buffer> \\2 \/def $/;"	m
+\C	ses.vim	/^map <buffer> \\C ?class $/;"	m
+\D	ses.vim	/^map <buffer> \\D ?def $/;"	m
+\\	ses.vim	/^nmap \\\\ :echomsg '\\\\ is deprecated. Use gc'$/;"	m
+\\\	ses.vim	/^nmap \\\\\\ <Plug>CommentaryLine:echomsg '\\\\ is deprecated. Use gc'$/;"	m
+\\u	ses.vim	/^nmap \\\\u <Plug>CommentaryUndo:echomsg '\\\\ is deprecated. Use gc'$/;"	m
+\c	ses.vim	/^nnoremap \\c :call CommentWithHashtags()$/;"	m
+\ev	ses.vim	/^nnoremap \\ev :vsplit $MYVIMRC$/;"	m
+\j	ses.vim	/^map \\j :CtrlP$/;"	m
+\nb	ses.vim	/^map \\nb :NERDTreeFromBookmark $/;"	m
+\nf	ses.vim	/^map \\nf :NERDTreeFind$/;"	m
+\nn	ses.vim	/^map \\nn :NERDTreeToggle$/;"	m
+\o	ses.vim	/^map \\o :BufExplorer$/;"	m
+\rs	ses.vim	/^nmap <silent> \\rs <Plug>NormalModeSendToTmux$/;"	m
+\rs	ses.vim	/^vmap <silent> \\rs <Plug>SendSelectionToTmux$/;"	m
+\rv	ses.vim	/^nmap <silent> \\rv <Plug>SetTmuxVars$/;"	m
+\sv	ses.vim	/^nnoremap \\sv :source $MYVIMRC$/;"	m
+\t	ses.vim	/^map \\t :VimuxRunLastCommand$/;"	m
+\t\	ses.vim	/^map \\t\\ :tabnext$/;"	m
+\tc	ses.vim	/^map \\tc :tabclose$/;"	m
+\tm	ses.vim	/^map \\tm :tabmove$/;"	m
+\tn	ses.vim	/^map \\tn :tabnew$/;"	m
+\to	ses.vim	/^map \\to :tabonly$/;"	m
+__getitem__	ca.py	/^    def __getitem__(self, index):$/;"	m	class:SchellingCA	file:
+__init__	ca.py	/^    def __init__(self, preferences=None, race='white', is_happy=False, races=None, vision=1, pk=0, max_walking_distance=0):$/;"	m	class:Person
+__init__	ca.py	/^    def __init__(self, width=8, height=8, races=None, state=None, moving_radius_function=None, mode='rr'):$/;"	m	class:SchellingCA
+__len__	ca.py	/^    def __len__(self):$/;"	m	class:SchellingCA	file:
+__repr__	ca.py	/^    def __repr__(self):$/;"	m	class:Person	file:
+__repr__	ca.py	/^    def __repr__(self):$/;"	m	class:SchellingCA	file:
+__str__	ca.py	/^    def __str__(self):$/;"	m	class:Person	file:
+avg_happiness	ca.py	/^    def avg_happiness(self):$/;"	m	class:SchellingCA
+avg_similarity	ca.py	/^    def avg_similarity(self):$/;"	m	class:SchellingCA
+bN	ses.vim	/^map bN :bprev$/;"	m
+bd	ses.vim	/^map bd :bdelete$/;"	m
+bn	ses.vim	/^map bn :bnext$/;"	m
+cgc	ses.vim	/^nmap cgc <Plug>ChangeCommentary$/;"	m
+config1	configs.py	/^def config1(width=8,height=8):$/;"	f
+config_all_black_all_happy	configs.py	/^def config_all_black_all_happy(width=8,height=8):$/;"	f
+config_all_white_all_happy	configs.py	/^def config_all_white_all_happy(width=8,height=8):$/;"	f
+config_fav	main.py	/^def config_fav(width=8,height=8, prefs=None):$/;"	f
+config_mixed	configs.py	/^def config_mixed(width=8,height=8):$/;"	f
+config_random	configs.py	/^def config_random(width=8,height=8):$/;"	f
+config_random2	configs.py	/^def config_random2(width=8,height=8):$/;"	f
+cs	ses.vim	/^nmap cs <Plug>Csurround$/;"	m
+ds	ses.vim	/^nmap ds <Plug>Dsurround$/;"	m
+gP	ses.vim	/^nnoremap <silent> gP :YRPaste 'gP'$/;"	m
+gc	ses.vim	/^nmap gc <Plug>Commentary$/;"	m
+gc	ses.vim	/^omap gc <Plug>Commentary$/;"	m
+gcc	ses.vim	/^nmap gcc <Plug>CommentaryLine$/;"	m
+gcu	ses.vim	/^nmap gcu <Plug>Commentary<Plug>Commentary$/;"	m
+get_neighbors	ca.py	/^    def get_neighbors(self,i,j,vision=1):$/;"	m	class:SchellingCA
+gf	ses.vim	/^nnoremap gf :call GotoFile("")$/;"	m
+gp	ses.vim	/^nnoremap <silent> gp :YRPaste 'gp'$/;"	m
+gx	ses.vim	/^nmap gx <Plug>NetrwBrowseX$/;"	m
+iterate	ca.py	/^    def iterate(self):$/;"	m	class:SchellingCA
+j	ses.vim	/^nmap j gj$/;"	m
+j	ses.vim	/^vmap j gj$/;"	m
+k	ses.vim	/^nmap k gk$/;"	m
+k	ses.vim	/^vmap k gk$/;"	m
+main	main.py	/^def main():$/;"	f
+move_someone	ca.py	/^    def move_someone(self):$/;"	m	class:SchellingCA
+move_via_rw	ca.py	/^    def move_via_rw(self, old_x, old_y):$/;"	m	class:SchellingCA
+move_via_unifrandom	ca.py	/^    def move_via_unifrandom(self, old_x, old_y):$/;"	m	class:SchellingCA
+p	ses.vim	/^nnoremap <silent> p :YRPaste 'p'$/;"	m
+print_happiness	ca.py	/^    def print_happiness(self):$/;"	m	class:SchellingCA
+print_races	ca.py	/^    def print_races(self):$/;"	m	class:SchellingCA
+print_state	ca.py	/^    def print_state(self):$/;"	m	class:SchellingCA
+s:cpo_save	ses.vim	/^let s:cpo_save=&cpo$/;"	v
+s:l	ses.vim	/^let s:l = 1 - ((0 * winheight(0) + 27) \/ 54)$/;"	v
+s:so_save	ses.vim	/^let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0$/;"	v
+s:sx	ses.vim	/^let s:sx = expand("<sfile>:p:r")."x.vim"$/;"	v
+s:wipebuf	ses.vim	/^  let s:wipebuf = bufnr('%')$/;"	v
+strall	ca.py	/^    def strall(self):$/;"	m	class:Person
+strsmall	ca.py	/^    def strsmall(self):$/;"	m	class:Person
+theloop	main.py	/^def theloop():$/;"	f
+update_happiness	ca.py	/^    def update_happiness(self,nbr_dict):$/;"	m	class:Person
+update_states_and_sets	ca.py	/^    def update_states_and_sets(self):$/;"	m	class:SchellingCA
+yS	ses.vim	/^nmap yS <Plug>YSurround$/;"	m
+ySS	ses.vim	/^nmap ySS <Plug>YSsurround$/;"	m
+ySs	ses.vim	/^nmap ySs <Plug>YSsurround$/;"	m
+ys	ses.vim	/^nmap ys <Plug>Ysurround$/;"	m
+yss	ses.vim	/^nmap yss <Plug>Yssurround$/;"	m
+zt	ses.vim	/^normal! zt$/;"	m

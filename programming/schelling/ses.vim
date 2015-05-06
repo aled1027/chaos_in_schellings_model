@@ -120,12 +120,15 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 main.py
 badd +0 ca.py
 badd +0 configs.py
+badd +0 main.py
+badd +0 tests.py
+badd +0 readme.md
+badd +0 data.csv
 badd +0 schelling.log
-args main.py ca.py configs.py schelling.log
-edit main.py
+args ca.py configs.py main.py tests.py readme.md data.csv schelling.log
+edit ca.py
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -241,11 +244,11 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 22 - ((21 * winheight(0) + 22) / 45)
+let s:l = 1 - ((0 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-22
+1
 normal! 0
 tabnext 1
 if exists('s:wipebuf')

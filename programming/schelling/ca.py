@@ -1,24 +1,37 @@
 import logging
+import random
+
+def tuple_add(a,b):
+        return (a[0]+b[0], a[1]+b[1])
 
 class SchellingCA:
-    is_done = False
-    amount_segregation = 0
-    empty_positions = set()
-    unhappy_positions = set()
-    happy_positions = set()
-
-    def __init__(self, width=8, height=8, races=None, state=None, moving_radius_function=None):
-        self.races = races if races else ['white','black']
+    """
+    TODO document what each parameter is
+    """
+    def __init__(self, width=8, height=8, races=None, state=None, moving_radius_function=None, mode='rw'):
+        self.width = width
+        self.height = height
+        self.is_done = False
+        self.amount_segregation = 0
+        self.num_iterations = 0
+        self.empty_positions = set()
+        self.unhappy_positions = set()
+        self.happy_positions = set()
         self.state = state if state else [[None]*self.width]*self.height
+        self.races = races if races else ['white','black']
+        self.mode = mode
         if moving_radius_function:
             self.moving_radius_function = moving_radius_function
         else:
             self.moving_radius_function = lambda x: 10000
-        self.width = width
-        self.height = height
+
         self.update_states_and_sets()
 
+
     def __repr__(self):
+        return str(self)
+
+    def __str__(self):
         return "%d by %d; agents: %d; agents unhappy: %d; avg happiness: %d; avg similiarity: %d" \
                 % (self.width, self.height, len(self.unhappy_positions) + len(self.happy_positions), \
                     len(self.unhappy_positions), self.avg_happiness, self.avg_similarity)
@@ -96,49 +109,93 @@ class SchellingCA:
                     self.unhappy_positions.add((i,j))
                     self.happy_positions.discard((i,j))
 
-
     def move_someone(self):
         """
-        move_someone(self)
-        1. If we can, pick a random unhappy person.
-        2. Move them to a new position within their move distance such that they are happy.
-        3. Return True if we could find someone to move.
-        4. Return False if we could not find someone to move.
+        Input: none
+        Output: a boolean. True if someone was moved; False is nobody moved
+        Change to state:
+            1. Picks an unhappy person at random
+            2. Tries to move the person via rw or unifrandom depending on the mode
+                such that the person is happy at their new position.
         """
+
         old_x, old_y = 0,0
         did_move_someone = False
+
         if self.unhappy_positions:
-            # 1. pick an unhappy person at random.
-            old_x, old_y = self.unhappy_positions.pop()
-            cell = self.state[old_x][old_y]
-
-            # 2. move them to a new position; such that they are happey
-            while self.empty_positions:
-                new_x,new_y = self.empty_positions.pop()
-
-                # check distance
-                dist = abs(new_x - old_x) + abs(new_y-old_y)
-                if dist > self.moving_radius_function(cell.vision):
-                    continue
-
-
-                nbr_races = [nbr.race for nbr in self.get_neighbors(new_x,new_y,self.state[old_x][old_y].vision)]
-                nbr_dict = {r: nbr_races.count(r) for r in self.races}
-                b = cell.update_happiness(nbr_dict)
-
-                # would they be happy at (new_x,new_y)?
-                if (cell.update_happiness(nbr_dict) == True):
-                    self.state[old_x][old_y],self.state[new_x][new_y] =  self.state[new_x][new_y], self.state[old_x][old_y]
-                    logging.debug('moved someone from (%d,%d) to (%d,%d)' %(old_x,old_y,new_x,new_y))
-                    did_move_someone = True
-                    break
-
-            else:
-                logging.debug('Did not move anyone, persons origin = (%d,%d)' %(old_x, old_y))
+            pos = self.unhappy_positions.pop()
+            if self.mode== 'rw':
+                did_move_someone = self.move_via_rw(pos)
+            elif self.mode == 'unifrandom':
+                did_move_someone = self.move_via_unifrandom(pos)
+        else:
+            logging.debug('Did not move anyone, no unhappy people')
+            return False
 
         if did_move_someone is False:
-            logging.debug('Did not move anyone, no unhappy people')
+            logging.debug('Did not move anyone. Could not find a happy place')
+
         return did_move_someone
+
+    def get_deltas(self, x, y):
+        ret = []
+        if x > 0:
+            ret.append((-1,0))
+        if x < self.width - 1:
+            ret.append((1,0))
+        if y > 0:
+            ret.append((0,-1))
+        if y < self.height - 1:
+            ret.append((0,1))
+        return ret
+
+
+    def move_via_rw(self, pos):
+        new_x, new_y = old_x, old_y = pos
+        cell = self.state[old_x][old_y]
+        self.state[old_x][old_y] = None
+        new_x, new_y = old_x, old_y
+        distanced_walked = 0
+        deltas = {0: (1,0), 1:(-1,0), 3:(0,1), 4:(0,-1)}
+        while cell.distance_walked < cell.max_walking_distance:
+            cell.distance_walked += 1
+            delta = random.choice(self.get_deltas(new_x, new_y))
+            new_pos = (new_x, new_y)
+            new_x, new_y = tuple_add(new_pos, delta)
+            print('checking %d, %d' % (new_x, new_y))
+            print('dist walked: %d, max_dist %d' % (cell.distance_walked, cell.max_walking_distance))
+
+            # PROBLEM: IT"S COUNTING ITSELF WHEN CALCULATING ITS NEIGHBORS
+
+            nbr_races = [nbr.race for nbr in self.get_neighbors(new_x, new_y, cell.vision)]
+            nbr_dict = {r: nbr_races.count(r) for r in self.races}
+            print(nbr_dict)
+            if self.state[new_x][new_y] is None and cell.update_happiness(nbr_dict):
+                print('hereherhehre')
+                self.state[new_x][new_y] = cell
+                logging.debug('moved someone from (%d,%d) to (%d,%d)' %(old_x,old_y,new_x,new_y))
+                return True
+
+        else:
+            self.state[old_x][old_y] = cell
+            logging.debug('Did not move anyone. Tried to move: (%d,%d)' % (old_x,old_y,new_x,new_y))
+            return False
+
+    def move_via_unifrandom(self, old_x, old_y):
+        cell = self.state[old_x][old_y]
+        while self.empty_positions:
+            new_x,new_y = self.empty_positions.pop()
+            dist = abs(new_x - old_x) + abs(new_y-old_y)
+            if dist > self.moving_radius_function(cell.vision):
+                continue
+            nbr_races = [nbr.race for nbr in self.get_neighbors(new_x,new_y,self.state[old_x][old_y].vision)]
+            nbr_dict = {r: nbr_races.count(r) for r in self.races}
+            b = cell.update_happiness(nbr_dict)
+            if (cell.update_happiness(nbr_dict) == True):
+                self.state[old_x][old_y],self.state[new_x][new_y] =  self.state[new_x][new_y], self.state[old_x][old_y]
+                logging.debug('moved someone from (%d,%d) to (%d,%d)' %(old_x,old_y,new_x,new_y))
+                did_move_someone = True
+                break
 
     def get_neighbors(self,i,j,vision=1):
         if i < 0:
@@ -216,7 +273,8 @@ class Person:
     # pk is personal key = a personal identifying number
     # preferences of the form: {'white': (.2,.3)} indicates prefers more than 20% white neighbors, less than %30 white neighbors.
     # vision measured in manhattan distance.
-    def __init__(self, preferences=None, race='white', is_happy=False, races=None, vision=1, pk=0):
+    def __init__(self, preferences=None, race='white', is_happy=False, races=None, vision=1, pk=0, max_walking_distance=100):
+        # TODO add max walking distance
         self.races = races if races else ['white','black']
         self.preferences = preferences if preferences else {}
         self.race = race
@@ -224,6 +282,8 @@ class Person:
         self.preferences = preferences
         self.vision = vision
         self.pk = pk
+        self.max_walking_distance = max_walking_distance
+        self.distance_walked = 0
 
     def update_happiness(self,nbr_dict):
         num_neighbors = sum(nbr_dict.values())
@@ -242,7 +302,6 @@ class Person:
         self.is_happy = True
         return True
 
-
     def strall(self):
         return "(Race: "+self.race + ", is_happy:" + str(self.is_happy) + ", preferences:" + str(self.preferences) + ")"
 
@@ -254,24 +313,4 @@ class Person:
 
     def __repr__(self):
         return str(self)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
