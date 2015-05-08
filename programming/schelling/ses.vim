@@ -120,17 +120,13 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 ca.py
-badd +0 configs.py
 badd +0 main.py
-badd +0 new_ca.py
-badd +0 orig.py
-badd +0 tests.py
-badd +0 readme.md
+badd +0 ca.py
 badd +0 data.csv
 badd +0 schelling.log
-args ca.py configs.py main.py new_ca.py orig.py tests.py readme.md data.csv schelling.log
-edit ca.py
+badd +0 readme.md
+args main.py ca.py data.csv schelling.log readme.md
+edit main.py
 set splitbelow splitright
 set nosplitbelow
 set nosplitright

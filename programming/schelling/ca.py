@@ -94,7 +94,7 @@ class SchellingCA:
         """
         logging.info('ca.py: update_states_and_sets')
         for index,cell in enumerate(self):
-            i = index % self.height
+            i = int(index % self.height)
             j = int((index - i) / self.height)
             if cell == None:
                 self.unhappy_positions.discard((i,j))
@@ -220,13 +220,13 @@ class SchellingCA:
 
     def get_neighbors(self,i,j):
         if i < 0:
-             raise RuntimeError("Width %d Lower than number of cells. " %i)
+            raise RuntimeError("Width %d Lower than number of cells. " %i)
         elif i >= self.width:
-             raise RuntimeError("Width %d Lower than number of cells. " %i)
+            raise RuntimeError("Width %d Lower than number of cells. " %i)
         elif j < 0:
-             raise RuntimeError("Height %d Higher than number of cells. " %i)
+            raise RuntimeError("Height %d Higher than number of cells. " %i)
         elif j >= self.height:
-             raise RuntimeError("Height %d Higher than number of cells. " %i)
+            raise RuntimeError("Height %d Higher than number of cells. " %i)
 
         deltas = [(a,b) for a in range(-1,2) for b in range(-1,2) if (a,b) != (0,0)]
         nbr_coords =  [(int(i+a), int(j+b)) for (a,b) in deltas if (0 <= i+a < self.width) and (0 <= j+b < self.height)]

@@ -1,74 +1,70 @@
-import logging
-import csv
 from ca import SchellingCA, Person
-from configs import *
+import copy
+import csv
+import logging
+import random
 
-def config_fav(width=8,height=8, prefs=None):
-    # approximately fills with 1/3 people
-    v = 2
-    prefs = prefs if prefs else [.3,.8,.3,.8]
+def c_random(width, height):
+    pref1 = 0.3
+    pref2 = 0.5
+
     ret = []
     for i in range(width):
         li = []
         for j in range(height):
             r = random.randint(1,3)
             if r == 1:
-                pref = {'white' : (prefs[0],prefs[1]), 'black' : (prefs[2],prefs[3])}
-                li.append(Person(preferences=pref, race='white',vision=v, pk=i+j))
+                li.append(Person(nbr_like_pref=pref1, race='black', pk=i+j))
             elif r == 2:
-                pref = {'white' : (prefs[0],prefs[1]), 'black' : (prefs[2],prefs[3])}
-                li.append(Person(preferences=pref, race='black',vision=v, pk=i+j))
+                li.append(Person(nbr_like_pref=pref2, race='white', pk=i+j))
             else:
                 li.append(None)
         ret.append(li)
     return ret
 
-def theloop():
-    #with open('data.csv', 'w', newline='') as csvfile:
-    with open('data.csv', 'w') as csvfile:
-        csvwriter = csv.writer(csvfile, delimiter=',')
-        num_iterations = 40
-        num_trials_per_pref = 40
-        preferences = [[a,.8,.3,.8] for a in [.1,.2,.3,.4,.5,.6,.7,.8]]
-
-        print('preferences narrow')
-        print('i', 'avg_happiness', 'avg_similarity')
-        unique_identifier = 0
-        for p in preferences:
-            for _ in range(num_trials_per_pref):
-                s = SchellingCA(width=8, height=8, state=config_fav(prefs = p))
-                for i in range(num_iterations):
-                    s.iterate()
-                    unique_identifier += 1
-                    for index,cell in enumerate(s):
-                        if cell is not None:
-                            csvwriter.writerow([unique_identifier,i,cell.pk, cell.race])
-
-                    # write to row: [pref[0], pref[1], pref[2], pref[3]]
-                    # for each person:
-                    # write to row: [unique_identifier, i, person id, race, preferences, happy at end?, initial position, position after n trials, distance traveled, num times moved]
-                    # print(s.avg_happiness, s.avg_similarity)
-
-
-def main():
-    print('starting')
-    theloop()
-    print('ending')
-
-
-
-if  __name__ == '__main__':
+if __name__=='__main__':
     logging.basicConfig(filename='schelling.log', level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
     logging.info('starting')
-    main()
+
+    with open('nearest_neighbor_data.csv', 'w') as nearest_csvfile:
+        with open('rw_data.csv', 'w') as rw_csvfile:
+
+            nearest_csvwriter = csv.writer(nearest_csvfile, delimiter=',')
+            #rw_csvwriter = csv.writer(rw_csvfile, delimiter=',')
+
+            #rw_csvwriter.writerow([1,2,3])
+
+            # INPUTS
+            num_trials = 10
+            num_iterations = 50
+            width = 8
+            height = 8
+
+            # make header for csv file
+            l = ['trial_number']
+            k = []
+            for i in range(num_iterations+1):
+                l.append('sim_iter_%d' % i)
+                k.append('hap_iter_%d' % i)
+            nearest_csvwriter.writerow(l + k)
+
+            # run the simulation
+            for i in range(num_trials):
+                a = c_random(width, height)
+                b = copy.deepcopy(a)
+
+                s = SchellingCA(width=width, height=height, state=a, mode='nearest')
+                t = SchellingCA(width=width, height=height, state=b, mode='rw')
+
+                s_avg_sim = [i, s.avg_similarity]
+                s_avg_hap = [s.avg_happiness]
+
+                for j in range(num_iterations):
+                    s.iterate()
+                    s_avg_sim.append(s.avg_similarity)
+                    s_avg_hap.append(s.avg_happiness)
+
+                nearest_csvwriter.writerow(s_avg_sim + s_avg_hap)
+
     logging.info('finishing')
-
-
-# t = SchellingCA(width=8,height=8, state=config_all_white_all_happy())
-# u = SchellingCA(width=8,height=8, state=config_all_black_all_happy())
-# v = SchellingCA(width=8,height=8, state=config_mixed())
-# w = SchellingCA(width=8,height=8, state=config_random())
-# y = SchellingCA(width=8,height=8, state=config_fav())
-
-
 

@@ -64,25 +64,26 @@ Si	ses.vim	/^vmap Si S(i_f)$/;"	m
 \tn	ses.vim	/^map \\tn :tabnew$/;"	m
 \to	ses.vim	/^map \\to :tabonly$/;"	m
 __getitem__	ca.py	/^    def __getitem__(self, index):$/;"	m	class:SchellingCA	file:
-__init__	ca.py	/^    def __init__(self, preferences=None, race='white', is_happy=False, races=None, vision=1, pk=0, max_walking_distance=0):$/;"	m	class:Person
-__init__	ca.py	/^    def __init__(self, width=8, height=8, races=None, state=None, moving_radius_function=None, mode='rr'):$/;"	m	class:SchellingCA
+__init__	ca.py	/^    def __init__(self, nbr_like_pref=0.0, race='white', is_happy=False, pk=0, max_walking_distance=100):$/;"	m	class:Person
+__init__	ca.py	/^    def __init__(self, width=8, height=8, races=None, state=None, moving_radius_function=None, mode='rw'):$/;"	m	class:SchellingCA
 __len__	ca.py	/^    def __len__(self):$/;"	m	class:SchellingCA	file:
 __repr__	ca.py	/^    def __repr__(self):$/;"	m	class:Person	file:
 __repr__	ca.py	/^    def __repr__(self):$/;"	m	class:SchellingCA	file:
 __str__	ca.py	/^    def __str__(self):$/;"	m	class:Person	file:
+__str__	ca.py	/^    def __str__(self):$/;"	m	class:SchellingCA	file:
+a	orig.py	/^    a = c_random(4,4)$/;"	v
 avg_happiness	ca.py	/^    def avg_happiness(self):$/;"	m	class:SchellingCA
 avg_similarity	ca.py	/^    def avg_similarity(self):$/;"	m	class:SchellingCA
+b	orig.py	/^    b = copy.deepcopy(a)$/;"	v
 bN	ses.vim	/^map bN :bprev$/;"	m
 bd	ses.vim	/^map bd :bdelete$/;"	m
 bn	ses.vim	/^map bn :bnext$/;"	m
+c	orig.py	/^def c(width, height):$/;"	f
+c	tests.py	/^def c(width=8,height=8, prefs=None):$/;"	f
+c_random	orig.py	/^def c_random(width, height):$/;"	f
 cgc	ses.vim	/^nmap cgc <Plug>ChangeCommentary$/;"	m
-config1	configs.py	/^def config1(width=8,height=8):$/;"	f
-config_all_black_all_happy	configs.py	/^def config_all_black_all_happy(width=8,height=8):$/;"	f
-config_all_white_all_happy	configs.py	/^def config_all_white_all_happy(width=8,height=8):$/;"	f
+config	tests.py	/^def config(width=8,height=8, prefs=None):$/;"	f
 config_fav	main.py	/^def config_fav(width=8,height=8, prefs=None):$/;"	f
-config_mixed	configs.py	/^def config_mixed(width=8,height=8):$/;"	f
-config_random	configs.py	/^def config_random(width=8,height=8):$/;"	f
-config_random2	configs.py	/^def config_random2(width=8,height=8):$/;"	f
 cs	ses.vim	/^nmap cs <Plug>Csurround$/;"	m
 ds	ses.vim	/^nmap ds <Plug>Dsurround$/;"	m
 gP	ses.vim	/^nnoremap <silent> gP :YRPaste 'gP'$/;"	m
@@ -90,7 +91,8 @@ gc	ses.vim	/^nmap gc <Plug>Commentary$/;"	m
 gc	ses.vim	/^omap gc <Plug>Commentary$/;"	m
 gcc	ses.vim	/^nmap gcc <Plug>CommentaryLine$/;"	m
 gcu	ses.vim	/^nmap gcu <Plug>Commentary<Plug>Commentary$/;"	m
-get_neighbors	ca.py	/^    def get_neighbors(self,i,j,vision=1):$/;"	m	class:SchellingCA
+get_deltas	ca.py	/^    def get_deltas(self, x, y):$/;"	m	class:SchellingCA
+get_neighbors	ca.py	/^    def get_neighbors(self,i,j):$/;"	m	class:SchellingCA
 gf	ses.vim	/^nnoremap gf :call GotoFile("")$/;"	m
 gp	ses.vim	/^nnoremap <silent> gp :YRPaste 'gp'$/;"	m
 gx	ses.vim	/^nmap gx <Plug>NetrwBrowseX$/;"	m
@@ -101,21 +103,29 @@ k	ses.vim	/^nmap k gk$/;"	m
 k	ses.vim	/^vmap k gk$/;"	m
 main	main.py	/^def main():$/;"	f
 move_someone	ca.py	/^    def move_someone(self):$/;"	m	class:SchellingCA
-move_via_rw	ca.py	/^    def move_via_rw(self, old_x, old_y):$/;"	m	class:SchellingCA
-move_via_unifrandom	ca.py	/^    def move_via_unifrandom(self, old_x, old_y):$/;"	m	class:SchellingCA
+move_via_nearest	ca.py	/^    def move_via_nearest(self, old_pos):$/;"	m	class:SchellingCA
+move_via_rw	ca.py	/^    def move_via_rw(self, pos):$/;"	m	class:SchellingCA
 p	ses.vim	/^nnoremap <silent> p :YRPaste 'p'$/;"	m
 print_happiness	ca.py	/^    def print_happiness(self):$/;"	m	class:SchellingCA
 print_races	ca.py	/^    def print_races(self):$/;"	m	class:SchellingCA
 print_state	ca.py	/^    def print_state(self):$/;"	m	class:SchellingCA
+s	orig.py	/^    s = SchellingCA(width=4, height=4, state=a, mode='nearest')$/;"	v
+s	tests.py	/^s = SchellingCA(width=8, height=8, state=c(), mode='nearest')$/;"	v
 s:cpo_save	ses.vim	/^let s:cpo_save=&cpo$/;"	v
-s:l	ses.vim	/^let s:l = 1 - ((0 * winheight(0) + 27) \/ 54)$/;"	v
+s:l	ses.vim	/^let s:l = 1 - ((0 * winheight(0) + 30) \/ 60)$/;"	v
 s:so_save	ses.vim	/^let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0$/;"	v
 s:sx	ses.vim	/^let s:sx = expand("<sfile>:p:r")."x.vim"$/;"	v
 s:wipebuf	ses.vim	/^  let s:wipebuf = bufnr('%')$/;"	v
+simpletest	tests.py	/^def simpletest():$/;"	f
 strall	ca.py	/^    def strall(self):$/;"	m	class:Person
 strsmall	ca.py	/^    def strsmall(self):$/;"	m	class:Person
+t	orig.py	/^    t = SchellingCA(width=4, height=4, state=b, mode='rw')$/;"	v
+test1	tests.py	/^def test1():$/;"	f
+test_random_walk	tests.py	/^def test_random_walk():$/;"	f
 theloop	main.py	/^def theloop():$/;"	f
-update_happiness	ca.py	/^    def update_happiness(self,nbr_dict):$/;"	m	class:Person
+tuple_add	ca.py	/^def tuple_add(a,b):$/;"	f
+tuple_subtract	ca.py	/^def tuple_subtract(a,b):$/;"	f
+update_happiness	ca.py	/^    def update_happiness(self, nbr_dict):$/;"	m	class:Person
 update_states_and_sets	ca.py	/^    def update_states_and_sets(self):$/;"	m	class:SchellingCA
 yS	ses.vim	/^nmap yS <Plug>YSurround$/;"	m
 ySS	ses.vim	/^nmap ySS <Plug>YSsurround$/;"	m
