@@ -312,3 +312,745 @@
 05/08/2015 12:45:25 AM Did not move anyone, no unhappy people
 05/08/2015 12:45:25 AM ca.py: update_states_and_sets
 05/08/2015 12:45:25 AM finishing orig
+05/08/2015 12:47:46 AM starting orig
+05/08/2015 12:47:46 AM ca.py: update_states_and_sets
+05/08/2015 12:47:46 AM ca.py: update_states_and_sets
+05/08/2015 12:47:46 AM ca.py: update_states_and_sets
+05/08/2015 12:47:46 AM moved someone from (0,1) to (2,1)
+05/08/2015 12:47:46 AM ca.py: update_states_and_sets
+05/08/2015 12:47:46 AM ca.py: update_states_and_sets
+05/08/2015 12:47:46 AM moved someone from (3,2) to (1,2)
+05/08/2015 12:47:46 AM ca.py: update_states_and_sets
+05/08/2015 12:47:46 AM ca.py: update_states_and_sets
+05/08/2015 12:47:46 AM moved someone from (3,3) to (3,2)
+05/08/2015 12:47:46 AM ca.py: update_states_and_sets
+05/08/2015 12:47:46 AM ca.py: update_states_and_sets
+05/08/2015 12:47:46 AM Did not move anyone, no unhappy people
+05/08/2015 12:47:46 AM ca.py: update_states_and_sets
+05/08/2015 12:47:46 AM ca.py: update_states_and_sets
+05/08/2015 12:47:46 AM Did not move anyone, no unhappy people
+05/08/2015 12:47:46 AM ca.py: update_states_and_sets
+05/08/2015 12:47:46 AM finishing orig
+05/08/2015 12:48:20 AM starting orig
+05/08/2015 12:48:20 AM ca.py: update_states_and_sets
+05/08/2015 12:48:20 AM ca.py: update_states_and_sets
+05/08/2015 12:48:20 AM ca.py: update_states_and_sets
+05/08/2015 12:48:20 AM moved someone from (3,0) to (3,2)
+05/08/2015 12:48:20 AM ca.py: update_states_and_sets
+05/08/2015 12:48:20 AM ca.py: update_states_and_sets
+05/08/2015 12:48:20 AM moved someone from (1,0) to (1,2)
+05/08/2015 12:48:20 AM ca.py: update_states_and_sets
+05/08/2015 12:48:20 AM ca.py: update_states_and_sets
+05/08/2015 12:48:20 AM moved someone from (1,3) to (1,0)
+05/08/2015 12:48:20 AM ca.py: update_states_and_sets
+05/08/2015 12:48:20 AM ca.py: update_states_and_sets
+05/08/2015 12:48:20 AM moved someone from (0,1) to (0,2)
+05/08/2015 12:48:20 AM ca.py: update_states_and_sets
+05/08/2015 12:48:20 AM ca.py: update_states_and_sets
+05/08/2015 12:48:20 AM Did not move anyone, no unhappy people
+05/08/2015 12:48:20 AM ca.py: update_states_and_sets
+05/08/2015 12:48:20 AM finishing orig
+05/08/2015 12:48:31 AM starting orig
+05/08/2015 12:48:31 AM ca.py: update_states_and_sets
+05/08/2015 12:48:31 AM ca.py: update_states_and_sets
+05/08/2015 12:48:31 AM ca.py: update_states_and_sets
+05/08/2015 12:48:31 AM moved someone from (0,3) to (3,2)
+05/08/2015 12:48:31 AM ca.py: update_states_and_sets
+05/08/2015 12:48:31 AM ca.py: update_states_and_sets
+05/08/2015 12:48:31 AM moved someone from (2,1) to (2,3)
+05/08/2015 12:48:31 AM ca.py: update_states_and_sets
+05/08/2015 12:48:31 AM ca.py: update_states_and_sets
+05/08/2015 12:48:31 AM Did not move anyone, no unhappy people
+05/08/2015 12:48:31 AM ca.py: update_states_and_sets
+05/08/2015 12:48:31 AM ca.py: update_states_and_sets
+05/08/2015 12:48:31 AM Did not move anyone, no unhappy people
+05/08/2015 12:48:31 AM ca.py: update_states_and_sets
+05/08/2015 12:48:31 AM ca.py: update_states_and_sets
+05/08/2015 12:48:31 AM Did not move anyone, no unhappy people
+05/08/2015 12:48:31 AM ca.py: update_states_and_sets
+05/08/2015 12:48:31 AM finishing orig
+05/08/2015 12:48:55 AM starting orig
+05/08/2015 12:48:55 AM ca.py: update_states_and_sets
+05/08/2015 12:48:55 AM ca.py: update_states_and_sets
+05/08/2015 12:48:55 AM ca.py: update_states_and_sets
+05/08/2015 12:48:55 AM did not move from (1,2)
+05/08/2015 12:48:55 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:48:55 AM ca.py: update_states_and_sets
+05/08/2015 12:48:55 AM ca.py: update_states_and_sets
+05/08/2015 12:48:55 AM did not move from (1,2)
+05/08/2015 12:48:55 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:48:55 AM ca.py: update_states_and_sets
+05/08/2015 12:48:55 AM ca.py: update_states_and_sets
+05/08/2015 12:48:55 AM did not move from (1,2)
+05/08/2015 12:48:55 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:48:55 AM ca.py: update_states_and_sets
+05/08/2015 12:48:55 AM ca.py: update_states_and_sets
+05/08/2015 12:48:55 AM did not move from (1,2)
+05/08/2015 12:48:55 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:48:55 AM ca.py: update_states_and_sets
+05/08/2015 12:48:55 AM ca.py: update_states_and_sets
+05/08/2015 12:48:55 AM did not move from (1,2)
+05/08/2015 12:48:55 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:48:55 AM ca.py: update_states_and_sets
+05/08/2015 12:48:55 AM finishing orig
+05/08/2015 12:48:59 AM starting orig
+05/08/2015 12:48:59 AM ca.py: update_states_and_sets
+05/08/2015 12:48:59 AM ca.py: update_states_and_sets
+05/08/2015 12:48:59 AM ca.py: update_states_and_sets
+05/08/2015 12:48:59 AM moved someone from (0,0) to (1,0)
+05/08/2015 12:48:59 AM ca.py: update_states_and_sets
+05/08/2015 12:48:59 AM ca.py: update_states_and_sets
+05/08/2015 12:48:59 AM moved someone from (1,3) to (0,0)
+05/08/2015 12:48:59 AM ca.py: update_states_and_sets
+05/08/2015 12:48:59 AM ca.py: update_states_and_sets
+05/08/2015 12:48:59 AM moved someone from (3,3) to (3,2)
+05/08/2015 12:48:59 AM ca.py: update_states_and_sets
+05/08/2015 12:48:59 AM ca.py: update_states_and_sets
+05/08/2015 12:48:59 AM moved someone from (3,0) to (3,3)
+05/08/2015 12:48:59 AM ca.py: update_states_and_sets
+05/08/2015 12:48:59 AM ca.py: update_states_and_sets
+05/08/2015 12:48:59 AM moved someone from (2,0) to (0,1)
+05/08/2015 12:48:59 AM ca.py: update_states_and_sets
+05/08/2015 12:48:59 AM finishing orig
+05/08/2015 12:49:01 AM starting orig
+05/08/2015 12:49:01 AM ca.py: update_states_and_sets
+05/08/2015 12:49:01 AM ca.py: update_states_and_sets
+05/08/2015 12:49:01 AM ca.py: update_states_and_sets
+05/08/2015 12:49:01 AM moved someone from (0,1) to (2,1)
+05/08/2015 12:49:01 AM ca.py: update_states_and_sets
+05/08/2015 12:49:01 AM ca.py: update_states_and_sets
+05/08/2015 12:49:01 AM moved someone from (3,2) to (1,2)
+05/08/2015 12:49:01 AM ca.py: update_states_and_sets
+05/08/2015 12:49:01 AM ca.py: update_states_and_sets
+05/08/2015 12:49:01 AM moved someone from (1,3) to (2,3)
+05/08/2015 12:49:01 AM ca.py: update_states_and_sets
+05/08/2015 12:49:01 AM ca.py: update_states_and_sets
+05/08/2015 12:49:01 AM moved someone from (2,2) to (1,3)
+05/08/2015 12:49:01 AM ca.py: update_states_and_sets
+05/08/2015 12:49:01 AM ca.py: update_states_and_sets
+05/08/2015 12:49:01 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:01 AM ca.py: update_states_and_sets
+05/08/2015 12:49:01 AM finishing orig
+05/08/2015 12:49:02 AM starting orig
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM did not move from (1,0)
+05/08/2015 12:49:02 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM moved someone from (0,3) to (1,3)
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM did not move from (1,0)
+05/08/2015 12:49:02 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM did not move from (1,0)
+05/08/2015 12:49:02 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM did not move from (1,0)
+05/08/2015 12:49:02 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM finishing orig
+05/08/2015 12:49:02 AM starting orig
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM moved someone from (0,1) to (2,0)
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM moved someone from (2,1) to (3,1)
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:02 AM ca.py: update_states_and_sets
+05/08/2015 12:49:02 AM finishing orig
+05/08/2015 12:49:03 AM starting orig
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM moved someone from (1,2) to (3,3)
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM did not move from (2,0)
+05/08/2015 12:49:03 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM did not move from (3,2)
+05/08/2015 12:49:03 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM moved someone from (2,3) to (1,3)
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM moved someone from (2,0) to (2,3)
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM finishing orig
+05/08/2015 12:49:03 AM starting orig
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM moved someone from (0,1) to (1,1)
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM moved someone from (2,0) to (1,2)
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM moved someone from (0,0) to (0,1)
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM moved someone from (2,3) to (0,3)
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:03 AM ca.py: update_states_and_sets
+05/08/2015 12:49:03 AM finishing orig
+05/08/2015 12:49:04 AM starting orig
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM moved someone from (1,2) to (0,2)
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM moved someone from (3,3) to (1,2)
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM moved someone from (2,1) to (2,2)
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM finishing orig
+05/08/2015 12:49:04 AM starting orig
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM moved someone from (0,1) to (1,2)
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM moved someone from (0,0) to (0,1)
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM moved someone from (1,3) to (2,3)
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM moved someone from (0,2) to (0,0)
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM finishing orig
+05/08/2015 12:49:04 AM starting orig
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM moved someone from (2,0) to (0,1)
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM did not move from (1,0)
+05/08/2015 12:49:04 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM moved someone from (0,0) to (2,0)
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM moved someone from (3,2) to (1,1)
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:04 AM ca.py: update_states_and_sets
+05/08/2015 12:49:04 AM finishing orig
+05/08/2015 12:49:05 AM starting orig
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM moved someone from (2,0) to (3,0)
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM moved someone from (0,2) to (3,2)
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM moved someone from (2,1) to (2,0)
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM moved someone from (2,2) to (2,1)
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM moved someone from (2,0) to (0,0)
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM finishing orig
+05/08/2015 12:49:05 AM starting orig
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:05 AM ca.py: update_states_and_sets
+05/08/2015 12:49:05 AM finishing orig
+05/08/2015 12:49:06 AM starting orig
+05/08/2015 12:49:06 AM ca.py: update_states_and_sets
+05/08/2015 12:49:06 AM ca.py: update_states_and_sets
+05/08/2015 12:49:06 AM ca.py: update_states_and_sets
+05/08/2015 12:49:06 AM moved someone from (2,3) to (1,2)
+05/08/2015 12:49:06 AM ca.py: update_states_and_sets
+05/08/2015 12:49:06 AM ca.py: update_states_and_sets
+05/08/2015 12:49:06 AM moved someone from (2,2) to (2,3)
+05/08/2015 12:49:06 AM ca.py: update_states_and_sets
+05/08/2015 12:49:06 AM ca.py: update_states_and_sets
+05/08/2015 12:49:06 AM moved someone from (0,3) to (3,3)
+05/08/2015 12:49:06 AM ca.py: update_states_and_sets
+05/08/2015 12:49:06 AM ca.py: update_states_and_sets
+05/08/2015 12:49:06 AM moved someone from (1,3) to (3,2)
+05/08/2015 12:49:06 AM ca.py: update_states_and_sets
+05/08/2015 12:49:06 AM ca.py: update_states_and_sets
+05/08/2015 12:49:06 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:06 AM ca.py: update_states_and_sets
+05/08/2015 12:49:06 AM finishing orig
+05/08/2015 12:49:09 AM starting orig
+05/08/2015 12:49:09 AM ca.py: update_states_and_sets
+05/08/2015 12:49:09 AM ca.py: update_states_and_sets
+05/08/2015 12:49:09 AM ca.py: update_states_and_sets
+05/08/2015 12:49:09 AM moved someone from (2,0) to (3,0)
+05/08/2015 12:49:09 AM ca.py: update_states_and_sets
+05/08/2015 12:49:09 AM ca.py: update_states_and_sets
+05/08/2015 12:49:09 AM moved someone from (3,1) to (3,3)
+05/08/2015 12:49:09 AM ca.py: update_states_and_sets
+05/08/2015 12:49:09 AM ca.py: update_states_and_sets
+05/08/2015 12:49:09 AM moved someone from (3,0) to (3,2)
+05/08/2015 12:49:09 AM ca.py: update_states_and_sets
+05/08/2015 12:49:09 AM ca.py: update_states_and_sets
+05/08/2015 12:49:09 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:09 AM ca.py: update_states_and_sets
+05/08/2015 12:49:09 AM ca.py: update_states_and_sets
+05/08/2015 12:49:09 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:09 AM ca.py: update_states_and_sets
+05/08/2015 12:49:09 AM finishing orig
+05/08/2015 12:49:10 AM starting orig
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM moved someone from (0,3) to (1,2)
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM moved someone from (3,1) to (0,3)
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM did not move from (2,3)
+05/08/2015 12:49:10 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM did not move from (2,3)
+05/08/2015 12:49:10 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM did not move from (2,3)
+05/08/2015 12:49:10 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM finishing orig
+05/08/2015 12:49:10 AM starting orig
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM moved someone from (1,2) to (1,0)
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM moved someone from (0,3) to (0,0)
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM moved someone from (0,1) to (1,2)
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:10 AM ca.py: update_states_and_sets
+05/08/2015 12:49:10 AM finishing orig
+05/08/2015 12:49:11 AM starting orig
+05/08/2015 12:49:11 AM ca.py: update_states_and_sets
+05/08/2015 12:49:11 AM ca.py: update_states_and_sets
+05/08/2015 12:49:11 AM ca.py: update_states_and_sets
+05/08/2015 12:49:11 AM moved someone from (0,1) to (3,0)
+05/08/2015 12:49:11 AM ca.py: update_states_and_sets
+05/08/2015 12:49:11 AM ca.py: update_states_and_sets
+05/08/2015 12:49:11 AM moved someone from (1,2) to (2,0)
+05/08/2015 12:49:11 AM ca.py: update_states_and_sets
+05/08/2015 12:49:11 AM ca.py: update_states_and_sets
+05/08/2015 12:49:11 AM moved someone from (3,3) to (1,2)
+05/08/2015 12:49:11 AM ca.py: update_states_and_sets
+05/08/2015 12:49:11 AM ca.py: update_states_and_sets
+05/08/2015 12:49:11 AM moved someone from (2,1) to (0,1)
+05/08/2015 12:49:11 AM ca.py: update_states_and_sets
+05/08/2015 12:49:11 AM ca.py: update_states_and_sets
+05/08/2015 12:49:11 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:11 AM ca.py: update_states_and_sets
+05/08/2015 12:49:11 AM finishing orig
+05/08/2015 12:49:12 AM starting orig
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM moved someone from (0,0) to (2,2)
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM moved someone from (2,1) to (1,0)
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM finishing orig
+05/08/2015 12:49:12 AM starting orig
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM moved someone from (1,0) to (3,1)
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM moved someone from (2,3) to (1,2)
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:12 AM ca.py: update_states_and_sets
+05/08/2015 12:49:12 AM finishing orig
+05/08/2015 12:49:13 AM starting orig
+05/08/2015 12:49:13 AM ca.py: update_states_and_sets
+05/08/2015 12:49:13 AM ca.py: update_states_and_sets
+05/08/2015 12:49:13 AM ca.py: update_states_and_sets
+05/08/2015 12:49:13 AM moved someone from (3,0) to (2,3)
+05/08/2015 12:49:13 AM ca.py: update_states_and_sets
+05/08/2015 12:49:13 AM ca.py: update_states_and_sets
+05/08/2015 12:49:13 AM moved someone from (3,2) to (0,3)
+05/08/2015 12:49:13 AM ca.py: update_states_and_sets
+05/08/2015 12:49:13 AM ca.py: update_states_and_sets
+05/08/2015 12:49:13 AM moved someone from (3,3) to (3,2)
+05/08/2015 12:49:13 AM ca.py: update_states_and_sets
+05/08/2015 12:49:13 AM ca.py: update_states_and_sets
+05/08/2015 12:49:13 AM moved someone from (2,2) to (3,3)
+05/08/2015 12:49:13 AM ca.py: update_states_and_sets
+05/08/2015 12:49:13 AM ca.py: update_states_and_sets
+05/08/2015 12:49:13 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:13 AM ca.py: update_states_and_sets
+05/08/2015 12:49:13 AM finishing orig
+05/08/2015 12:49:14 AM starting orig
+05/08/2015 12:49:14 AM ca.py: update_states_and_sets
+05/08/2015 12:49:14 AM ca.py: update_states_and_sets
+05/08/2015 12:49:14 AM ca.py: update_states_and_sets
+05/08/2015 12:49:14 AM moved someone from (1,2) to (1,3)
+05/08/2015 12:49:14 AM ca.py: update_states_and_sets
+05/08/2015 12:49:14 AM ca.py: update_states_and_sets
+05/08/2015 12:49:14 AM moved someone from (2,0) to (1,0)
+05/08/2015 12:49:14 AM ca.py: update_states_and_sets
+05/08/2015 12:49:14 AM ca.py: update_states_and_sets
+05/08/2015 12:49:14 AM moved someone from (3,2) to (1,2)
+05/08/2015 12:49:14 AM ca.py: update_states_and_sets
+05/08/2015 12:49:14 AM ca.py: update_states_and_sets
+05/08/2015 12:49:14 AM moved someone from (1,3) to (2,2)
+05/08/2015 12:49:14 AM ca.py: update_states_and_sets
+05/08/2015 12:49:14 AM ca.py: update_states_and_sets
+05/08/2015 12:49:14 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:14 AM ca.py: update_states_and_sets
+05/08/2015 12:49:14 AM finishing orig
+05/08/2015 12:49:19 AM starting orig
+05/08/2015 12:49:19 AM ca.py: update_states_and_sets
+05/08/2015 12:49:19 AM ca.py: update_states_and_sets
+05/08/2015 12:49:19 AM ca.py: update_states_and_sets
+05/08/2015 12:49:19 AM moved someone from (3,0) to (3,2)
+05/08/2015 12:49:19 AM ca.py: update_states_and_sets
+05/08/2015 12:49:19 AM ca.py: update_states_and_sets
+05/08/2015 12:49:19 AM moved someone from (2,0) to (3,1)
+05/08/2015 12:49:19 AM ca.py: update_states_and_sets
+05/08/2015 12:49:19 AM ca.py: update_states_and_sets
+05/08/2015 12:49:19 AM moved someone from (3,2) to (3,3)
+05/08/2015 12:49:19 AM ca.py: update_states_and_sets
+05/08/2015 12:49:19 AM ca.py: update_states_and_sets
+05/08/2015 12:49:20 AM moved someone from (2,2) to (3,2)
+05/08/2015 12:49:20 AM ca.py: update_states_and_sets
+05/08/2015 12:49:20 AM ca.py: update_states_and_sets
+05/08/2015 12:49:20 AM Did not move anyone, no unhappy people
+05/08/2015 12:49:20 AM ca.py: update_states_and_sets
+05/08/2015 12:49:20 AM finishing orig
+05/08/2015 12:50:04 AM starting orig
+05/08/2015 12:50:04 AM ca.py: update_states_and_sets
+05/08/2015 12:50:04 AM ca.py: update_states_and_sets
+05/08/2015 12:50:04 AM ca.py: update_states_and_sets
+05/08/2015 12:50:04 AM moved someone from (1,2) to (1,1)
+05/08/2015 12:50:04 AM ca.py: update_states_and_sets
+05/08/2015 12:50:04 AM ca.py: update_states_and_sets
+05/08/2015 12:50:04 AM moved someone from (2,0) to (1,2)
+05/08/2015 12:50:04 AM ca.py: update_states_and_sets
+05/08/2015 12:50:04 AM ca.py: update_states_and_sets
+05/08/2015 12:50:04 AM did not move from (3,0)
+05/08/2015 12:50:04 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:50:04 AM ca.py: update_states_and_sets
+05/08/2015 12:50:04 AM ca.py: update_states_and_sets
+05/08/2015 12:50:04 AM did not move from (3,0)
+05/08/2015 12:50:04 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:50:04 AM ca.py: update_states_and_sets
+05/08/2015 12:50:04 AM ca.py: update_states_and_sets
+05/08/2015 12:50:04 AM did not move from (3,0)
+05/08/2015 12:50:04 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:50:04 AM ca.py: update_states_and_sets
+05/08/2015 12:50:04 AM finishing orig
+05/08/2015 12:50:05 AM starting orig
+05/08/2015 12:50:05 AM ca.py: update_states_and_sets
+05/08/2015 12:50:05 AM ca.py: update_states_and_sets
+05/08/2015 12:50:05 AM ca.py: update_states_and_sets
+05/08/2015 12:50:05 AM moved someone from (3,0) to (2,1)
+05/08/2015 12:50:05 AM ca.py: update_states_and_sets
+05/08/2015 12:50:05 AM ca.py: update_states_and_sets
+05/08/2015 12:50:05 AM moved someone from (2,0) to (1,0)
+05/08/2015 12:50:05 AM ca.py: update_states_and_sets
+05/08/2015 12:50:05 AM ca.py: update_states_and_sets
+05/08/2015 12:50:05 AM moved someone from (0,3) to (1,3)
+05/08/2015 12:50:05 AM ca.py: update_states_and_sets
+05/08/2015 12:50:05 AM ca.py: update_states_and_sets
+05/08/2015 12:50:05 AM moved someone from (1,1) to (3,1)
+05/08/2015 12:50:05 AM ca.py: update_states_and_sets
+05/08/2015 12:50:05 AM ca.py: update_states_and_sets
+05/08/2015 12:50:05 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:05 AM ca.py: update_states_and_sets
+05/08/2015 12:50:05 AM finishing orig
+05/08/2015 12:50:15 AM starting orig
+05/08/2015 12:50:15 AM ca.py: update_states_and_sets
+05/08/2015 12:50:15 AM ca.py: update_states_and_sets
+05/08/2015 12:50:15 AM ca.py: update_states_and_sets
+05/08/2015 12:50:15 AM moved someone from (3,1) to (2,0)
+05/08/2015 12:50:15 AM ca.py: update_states_and_sets
+05/08/2015 12:50:15 AM ca.py: update_states_and_sets
+05/08/2015 12:50:15 AM moved someone from (2,3) to (1,3)
+05/08/2015 12:50:15 AM ca.py: update_states_and_sets
+05/08/2015 12:50:15 AM ca.py: update_states_and_sets
+05/08/2015 12:50:15 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:15 AM ca.py: update_states_and_sets
+05/08/2015 12:50:15 AM ca.py: update_states_and_sets
+05/08/2015 12:50:15 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:15 AM ca.py: update_states_and_sets
+05/08/2015 12:50:15 AM ca.py: update_states_and_sets
+05/08/2015 12:50:15 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:15 AM ca.py: update_states_and_sets
+05/08/2015 12:50:15 AM finishing orig
+05/08/2015 12:50:31 AM starting orig
+05/08/2015 12:50:31 AM ca.py: update_states_and_sets
+05/08/2015 12:50:31 AM ca.py: update_states_and_sets
+05/08/2015 12:50:31 AM ca.py: update_states_and_sets
+05/08/2015 12:50:31 AM moved someone from (1,2) to (2,2)
+05/08/2015 12:50:31 AM ca.py: update_states_and_sets
+05/08/2015 12:50:31 AM ca.py: update_states_and_sets
+05/08/2015 12:50:31 AM moved someone from (0,0) to (1,3)
+05/08/2015 12:50:31 AM ca.py: update_states_and_sets
+05/08/2015 12:50:31 AM ca.py: update_states_and_sets
+05/08/2015 12:50:31 AM moved someone from (0,2) to (0,1)
+05/08/2015 12:50:31 AM ca.py: update_states_and_sets
+05/08/2015 12:50:31 AM ca.py: update_states_and_sets
+05/08/2015 12:50:31 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:31 AM ca.py: update_states_and_sets
+05/08/2015 12:50:31 AM ca.py: update_states_and_sets
+05/08/2015 12:50:31 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:31 AM ca.py: update_states_and_sets
+05/08/2015 12:50:31 AM finishing orig
+05/08/2015 12:50:33 AM starting orig
+05/08/2015 12:50:33 AM ca.py: update_states_and_sets
+05/08/2015 12:50:33 AM ca.py: update_states_and_sets
+05/08/2015 12:50:33 AM ca.py: update_states_and_sets
+05/08/2015 12:50:33 AM moved someone from (2,0) to (0,2)
+05/08/2015 12:50:33 AM ca.py: update_states_and_sets
+05/08/2015 12:50:33 AM ca.py: update_states_and_sets
+05/08/2015 12:50:33 AM moved someone from (2,3) to (2,2)
+05/08/2015 12:50:33 AM ca.py: update_states_and_sets
+05/08/2015 12:50:33 AM ca.py: update_states_and_sets
+05/08/2015 12:50:33 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:33 AM ca.py: update_states_and_sets
+05/08/2015 12:50:33 AM ca.py: update_states_and_sets
+05/08/2015 12:50:33 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:33 AM ca.py: update_states_and_sets
+05/08/2015 12:50:33 AM ca.py: update_states_and_sets
+05/08/2015 12:50:33 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:33 AM ca.py: update_states_and_sets
+05/08/2015 12:50:33 AM finishing orig
+05/08/2015 12:50:34 AM starting orig
+05/08/2015 12:50:34 AM ca.py: update_states_and_sets
+05/08/2015 12:50:34 AM ca.py: update_states_and_sets
+05/08/2015 12:50:34 AM ca.py: update_states_and_sets
+05/08/2015 12:50:34 AM moved someone from (2,3) to (3,3)
+05/08/2015 12:50:34 AM ca.py: update_states_and_sets
+05/08/2015 12:50:34 AM ca.py: update_states_and_sets
+05/08/2015 12:50:34 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:34 AM ca.py: update_states_and_sets
+05/08/2015 12:50:34 AM ca.py: update_states_and_sets
+05/08/2015 12:50:34 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:34 AM ca.py: update_states_and_sets
+05/08/2015 12:50:34 AM ca.py: update_states_and_sets
+05/08/2015 12:50:34 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:34 AM ca.py: update_states_and_sets
+05/08/2015 12:50:34 AM ca.py: update_states_and_sets
+05/08/2015 12:50:34 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:34 AM ca.py: update_states_and_sets
+05/08/2015 12:50:34 AM finishing orig
+05/08/2015 12:50:35 AM starting orig
+05/08/2015 12:50:35 AM ca.py: update_states_and_sets
+05/08/2015 12:50:35 AM ca.py: update_states_and_sets
+05/08/2015 12:50:35 AM ca.py: update_states_and_sets
+05/08/2015 12:50:35 AM moved someone from (1,3) to (2,3)
+05/08/2015 12:50:35 AM ca.py: update_states_and_sets
+05/08/2015 12:50:35 AM ca.py: update_states_and_sets
+05/08/2015 12:50:35 AM moved someone from (2,1) to (3,1)
+05/08/2015 12:50:35 AM ca.py: update_states_and_sets
+05/08/2015 12:50:35 AM ca.py: update_states_and_sets
+05/08/2015 12:50:35 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:35 AM ca.py: update_states_and_sets
+05/08/2015 12:50:35 AM ca.py: update_states_and_sets
+05/08/2015 12:50:35 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:35 AM ca.py: update_states_and_sets
+05/08/2015 12:50:35 AM ca.py: update_states_and_sets
+05/08/2015 12:50:35 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:35 AM ca.py: update_states_and_sets
+05/08/2015 12:50:35 AM finishing orig
+05/08/2015 12:50:43 AM starting orig
+05/08/2015 12:50:43 AM ca.py: update_states_and_sets
+05/08/2015 12:50:43 AM ca.py: update_states_and_sets
+05/08/2015 12:50:43 AM ca.py: update_states_and_sets
+05/08/2015 12:50:43 AM moved someone from (1,0) to (1,2)
+05/08/2015 12:50:43 AM ca.py: update_states_and_sets
+05/08/2015 12:50:43 AM ca.py: update_states_and_sets
+05/08/2015 12:50:43 AM moved someone from (2,3) to (2,1)
+05/08/2015 12:50:43 AM ca.py: update_states_and_sets
+05/08/2015 12:50:43 AM ca.py: update_states_and_sets
+05/08/2015 12:50:43 AM moved someone from (3,1) to (3,3)
+05/08/2015 12:50:43 AM ca.py: update_states_and_sets
+05/08/2015 12:50:43 AM ca.py: update_states_and_sets
+05/08/2015 12:50:43 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:43 AM ca.py: update_states_and_sets
+05/08/2015 12:50:43 AM ca.py: update_states_and_sets
+05/08/2015 12:50:43 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:43 AM ca.py: update_states_and_sets
+05/08/2015 12:50:43 AM finishing orig
+05/08/2015 12:50:44 AM starting orig
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM moved someone from (0,1) to (0,3)
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM moved someone from (1,3) to (2,2)
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM moved someone from (2,1) to (3,0)
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM moved someone from (2,0) to (1,3)
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM moved someone from (0,2) to (0,1)
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM finishing orig
+05/08/2015 12:50:44 AM starting orig
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM moved someone from (3,1) to (3,2)
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM moved someone from (0,2) to (2,3)
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM moved someone from (2,2) to (3,3)
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:44 AM ca.py: update_states_and_sets
+05/08/2015 12:50:44 AM finishing orig
+05/08/2015 12:50:52 AM starting orig
+05/08/2015 12:50:52 AM ca.py: update_states_and_sets
+05/08/2015 12:50:52 AM ca.py: update_states_and_sets
+05/08/2015 12:50:52 AM ca.py: update_states_and_sets
+05/08/2015 12:50:52 AM moved someone from (2,0) to (1,3)
+05/08/2015 12:50:52 AM ca.py: update_states_and_sets
+05/08/2015 12:50:52 AM ca.py: update_states_and_sets
+05/08/2015 12:50:52 AM moved someone from (1,0) to (1,2)
+05/08/2015 12:50:52 AM ca.py: update_states_and_sets
+05/08/2015 12:50:52 AM ca.py: update_states_and_sets
+05/08/2015 12:50:52 AM moved someone from (2,3) to (3,2)
+05/08/2015 12:50:52 AM ca.py: update_states_and_sets
+05/08/2015 12:50:52 AM ca.py: update_states_and_sets
+05/08/2015 12:50:52 AM moved someone from (2,2) to (2,3)
+05/08/2015 12:50:52 AM ca.py: update_states_and_sets
+05/08/2015 12:50:52 AM ca.py: update_states_and_sets
+05/08/2015 12:50:52 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:52 AM ca.py: update_states_and_sets
+05/08/2015 12:50:52 AM finishing orig
+05/08/2015 12:50:53 AM starting orig
+05/08/2015 12:50:53 AM ca.py: update_states_and_sets
+05/08/2015 12:50:53 AM ca.py: update_states_and_sets
+05/08/2015 12:50:53 AM ca.py: update_states_and_sets
+05/08/2015 12:50:53 AM moved someone from (0,1) to (0,0)
+05/08/2015 12:50:53 AM ca.py: update_states_and_sets
+05/08/2015 12:50:53 AM ca.py: update_states_and_sets
+05/08/2015 12:50:53 AM moved someone from (3,2) to (0,1)
+05/08/2015 12:50:53 AM ca.py: update_states_and_sets
+05/08/2015 12:50:53 AM ca.py: update_states_and_sets
+05/08/2015 12:50:53 AM moved someone from (2,3) to (1,3)
+05/08/2015 12:50:53 AM ca.py: update_states_and_sets
+05/08/2015 12:50:53 AM ca.py: update_states_and_sets
+05/08/2015 12:50:53 AM did not move from (2,1)
+05/08/2015 12:50:53 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:50:53 AM ca.py: update_states_and_sets
+05/08/2015 12:50:53 AM ca.py: update_states_and_sets
+05/08/2015 12:50:53 AM did not move from (2,1)
+05/08/2015 12:50:53 AM Did not move anyone. Could not find a happy place
+05/08/2015 12:50:53 AM ca.py: update_states_and_sets
+05/08/2015 12:50:53 AM finishing orig
+05/08/2015 12:50:54 AM starting orig
+05/08/2015 12:50:54 AM ca.py: update_states_and_sets
+05/08/2015 12:50:54 AM ca.py: update_states_and_sets
+05/08/2015 12:50:54 AM ca.py: update_states_and_sets
+05/08/2015 12:50:54 AM moved someone from (2,3) to (2,0)
+05/08/2015 12:50:54 AM ca.py: update_states_and_sets
+05/08/2015 12:50:54 AM ca.py: update_states_and_sets
+05/08/2015 12:50:54 AM moved someone from (1,1) to (3,1)
+05/08/2015 12:50:54 AM ca.py: update_states_and_sets
+05/08/2015 12:50:54 AM ca.py: update_states_and_sets
+05/08/2015 12:50:54 AM moved someone from (3,3) to (3,2)
+05/08/2015 12:50:54 AM ca.py: update_states_and_sets
+05/08/2015 12:50:54 AM ca.py: update_states_and_sets
+05/08/2015 12:50:54 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:54 AM ca.py: update_states_and_sets
+05/08/2015 12:50:54 AM ca.py: update_states_and_sets
+05/08/2015 12:50:54 AM Did not move anyone, no unhappy people
+05/08/2015 12:50:54 AM ca.py: update_states_and_sets
+05/08/2015 12:50:54 AM finishing orig

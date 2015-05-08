@@ -50,7 +50,6 @@ def c_random(width, height):
 
 
 if __name__=='__main__':
-    print('here')
     logging.basicConfig(filename='schelling.log', level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
     logging.info('starting orig')
     a = c_random(4,4)

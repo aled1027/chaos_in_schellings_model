@@ -34,7 +34,7 @@ class SchellingCA:
         return str(self)
 
     def __str__(self):
-        return "%d by %d; agents: %d; agents unhappy: %d; avg happiness: %d; avg similiarity: %d" \
+        return "%d by %d; agents: %d; agents unhappy: %d; avg happiness: %f; avg similiarity: %f" \
                 % (self.width, self.height, len(self.unhappy_positions) + len(self.happy_positions), \
                     len(self.unhappy_positions), self.avg_happiness, self.avg_similarity)
 
@@ -54,6 +54,7 @@ class SchellingCA:
     @property
     def avg_similarity(self):
         # calculates average similarity ratio
+        # similarity ratio = # your race / # total nbrs
         similarity = []
         for index,cell in enumerate(self):
             i = index % self.height
@@ -194,7 +195,6 @@ class SchellingCA:
 
         best_dist = self.width * self.height
         best_pos = None
-        print(len(self.empty_positions), self.empty_positions)
         for p in self.empty_positions:
 
             nbr_races = [nbr.race for nbr in self.get_neighbors(p[0], p[1])]
