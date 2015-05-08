@@ -2,7 +2,10 @@ import logging
 import random
 
 def tuple_add(a,b):
-        return (a[0]+b[0], a[1]+b[1])
+    return (a[0]+b[0], a[1]+b[1])
+
+def tuple_subtract(a,b):
+    return tuple_add(a, tuple(-x for x in b))
 
 class SchellingCA:
     """
@@ -26,7 +29,6 @@ class SchellingCA:
             self.moving_radius_function = lambda x: 10000
 
         self.update_states_and_sets()
-
 
     def __repr__(self):
         return str(self)
@@ -57,7 +59,7 @@ class SchellingCA:
             i = index % self.height
             j = (index - i) / self.height
             if cell != None:
-                nbr_races = [nbr.race for nbr in self.get_neighbors(i, j, cell.vision)]
+                nbr_races = [nbr.race for nbr in self.get_neighbors(i, j)]
                 nbr_dict = {race: nbr_races.count(race) for race in self.races}
                 cur_race = cell.race
                 num_nbrs = sum(nbr_dict.values())
@@ -94,11 +96,11 @@ class SchellingCA:
             i = index % self.height
             j = int((index - i) / self.height)
             if cell == None:
-                self.empty_positions.add((i,j))
                 self.unhappy_positions.discard((i,j))
                 self.happy_positions.discard((i,j))
+                self.empty_positions.add((i,j))
             else:
-                nbr_races = [nbr.race for nbr in self.get_neighbors(i, j, cell.vision)]
+                nbr_races = [nbr.race for nbr in self.get_neighbors(i, j)]
                 nbr_dict = {race: nbr_races.count(race) for race in self.races}
                 cell.update_happiness(nbr_dict)
 
@@ -126,8 +128,8 @@ class SchellingCA:
             pos = self.unhappy_positions.pop()
             if self.mode== 'rw':
                 did_move_someone = self.move_via_rw(pos)
-            elif self.mode == 'unifrandom':
-                did_move_someone = self.move_via_unifrandom(pos)
+            elif self.mode == 'nearest':
+                did_move_someone = self.move_via_nearest(pos)
         else:
             logging.debug('Did not move anyone, no unhappy people')
             return False
@@ -149,7 +151,6 @@ class SchellingCA:
             ret.append((0,1))
         return ret
 
-
     def move_via_rw(self, pos):
         new_x, new_y = old_x, old_y = pos
         cell = self.state[old_x][old_y]
@@ -160,44 +161,61 @@ class SchellingCA:
         while cell.distance_walked < cell.max_walking_distance:
             cell.distance_walked += 1
             delta = random.choice(self.get_deltas(new_x, new_y))
+
             new_pos = (new_x, new_y)
-            new_x, new_y = tuple_add(new_pos, delta)
-            print('checking %d, %d' % (new_x, new_y))
-            print('dist walked: %d, max_dist %d' % (cell.distance_walked, cell.max_walking_distance))
+            new_pops = new_x, new_y = tuple_add(new_pos, delta)
 
-            # PROBLEM: IT"S COUNTING ITSELF WHEN CALCULATING ITS NEIGHBORS
+            if self.state[new_x][new_y] is not None:
+                continue
 
-            nbr_races = [nbr.race for nbr in self.get_neighbors(new_x, new_y, cell.vision)]
+            # VERIFY THAT IT'S NOT COUNTING ITSELF WHEN CALCULATING ITS NEIGHBORS
+            nbr_races = [nbr.race for nbr in self.get_neighbors(new_x, new_y)]
             nbr_dict = {r: nbr_races.count(r) for r in self.races}
-            print(nbr_dict)
-            if self.state[new_x][new_y] is None and cell.update_happiness(nbr_dict):
-                print('hereherhehre')
-                self.state[new_x][new_y] = cell
+            cell.update_happiness(nbr_dict)
+
+            if cell.is_happy:
                 logging.debug('moved someone from (%d,%d) to (%d,%d)' %(old_x,old_y,new_x,new_y))
+                self.state[new_x][new_y] = cell
                 return True
+
 
         else:
             self.state[old_x][old_y] = cell
-            logging.debug('Did not move anyone. Tried to move: (%d,%d)' % (old_x,old_y,new_x,new_y))
+            logging.debug('Did not move anyone. Tried to move: (%d,%d)' % (old_x,old_y))
             return False
 
-    def move_via_unifrandom(self, old_x, old_y):
+    def move_via_nearest(self, old_pos):
+        # checkmark -- appears to be working.
+        old_x, old_y = old_pos
         cell = self.state[old_x][old_y]
-        while self.empty_positions:
-            new_x,new_y = self.empty_positions.pop()
-            dist = abs(new_x - old_x) + abs(new_y-old_y)
-            if dist > self.moving_radius_function(cell.vision):
-                continue
-            nbr_races = [nbr.race for nbr in self.get_neighbors(new_x,new_y,self.state[old_x][old_y].vision)]
-            nbr_dict = {r: nbr_races.count(r) for r in self.races}
-            b = cell.update_happiness(nbr_dict)
-            if (cell.update_happiness(nbr_dict) == True):
-                self.state[old_x][old_y],self.state[new_x][new_y] =  self.state[new_x][new_y], self.state[old_x][old_y]
-                logging.debug('moved someone from (%d,%d) to (%d,%d)' %(old_x,old_y,new_x,new_y))
-                did_move_someone = True
-                break
+        self.state[old_x][old_y] = None
 
-    def get_neighbors(self,i,j,vision=1):
+        best_dist = self.width * self.height
+        best_pos = None
+        for p in self.empty_positions:
+
+            nbr_races = [nbr.race for nbr in self.get_neighbors(p[0], p[1])]
+            nbr_dict = {r: nbr_races.count(r) for r in self.races}
+            cell.update_happiness(nbr_dict)
+
+            if cell.is_happy == False:
+                continue
+
+            dist = abs(p[0] - old_x) + abs(p[1] - old_y)
+            if  dist < best_dist:
+                best_dist = dist
+                best_pos = p
+
+        if best_pos == None:
+            self.state[old_x][old_y] = cell
+            logging.debug('did not move from (%d,%d)' % (old_x, old_y))
+            return False
+        else:
+            self.state[best_pos[0]][best_pos[1]] = cell
+            logging.debug('moved someone from (%d,%d) to (%d,%d)' %(old_x, old_y, best_pos[0], best_pos[1]))
+            return True
+
+    def get_neighbors(self,i,j):
         if i < 0:
              raise RuntimeError("Width %d Lower than number of cells. " %i)
         elif i >= self.width:
@@ -207,8 +225,7 @@ class SchellingCA:
         elif j >= self.height:
              raise RuntimeError("Height %d Higher than number of cells. " %i)
 
-        v = vision
-        deltas = [(a,b) for a in range(-1*v,v+1) for b in range(-1*v,v+1) if abs(a)+abs(b) <= v and (a,b) != (0,0)]
+        deltas = [(a,b) for a in range(-1,2) for b in range(-1,2) if (a,b) != (0,0)]
         nbr_coords =  [(int(i+a), int(j+b)) for (a,b) in deltas if (0 <= i+a < self.width) and (0 <= j+b < self.height)]
         return [self.state[x][y] for (x,y) in nbr_coords if self.state[x][y] is not None]
 
@@ -218,14 +235,11 @@ class SchellingCA:
         1. Look at a list of unhappy persons. Pick one randomly.
         2. Move that person
         3. Update everyone else's happiness.
-        This aspect could be made more efficient by only updating people within the vision origin and destination of moved person.
         """
         did_move = self.move_someone()
         if (did_move == False):
             self.is_done = True
-            return False
         self.update_states_and_sets()
-        return True
 
     def print_happiness(self):
         string_list = []
@@ -271,39 +285,37 @@ class SchellingCA:
 
 class Person:
     # pk is personal key = a personal identifying number
-    # preferences of the form: {'white': (.2,.3)} indicates prefers more than 20% white neighbors, less than %30 white neighbors.
-    # vision measured in manhattan distance.
-    def __init__(self, preferences=None, race='white', is_happy=False, races=None, vision=1, pk=0, max_walking_distance=100):
+    # self.nbr_like_pref is a number between 0 and 1
+        # let x = nbr_like_pref
+        # the person wants for at least x percent of their neighbors to be like them.
+
+    def __init__(self, nbr_like_pref=0.0, race='white', is_happy=False, pk=0, max_walking_distance=100):
         # TODO add max walking distance
-        self.races = races if races else ['white','black']
-        self.preferences = preferences if preferences else {}
+        self.nbr_like_pref = nbr_like_pref
         self.race = race
         self.is_happy = is_happy
-        self.preferences = preferences
-        self.vision = vision
         self.pk = pk
         self.max_walking_distance = max_walking_distance
         self.distance_walked = 0
 
-    def update_happiness(self,nbr_dict):
+    def update_happiness(self, nbr_dict):
         num_neighbors = sum(nbr_dict.values())
-
         if num_neighbors == 0:
-            return True
+            self.is_happy = False
+            return False
 
-        for race in self.races:
-            pct_race = float(nbr_dict[race]) / float(num_neighbors)
-            lower_bound, upper_bound = self.preferences[race]
-            if not (lower_bound <= pct_race <= upper_bound):
-                # failed a condition. we are so unhappy
-                self.is_happy = False
-                return False
+        ratio = float(nbr_dict[self.race]) / float(num_neighbors)
+        logging.debug('this ratio should be a float %f' % ratio)
 
-        self.is_happy = True
-        return True
+        if ratio >= self.nbr_like_pref:
+            self.is_happy = True
+        else:
+            self.is_happy = False
+        return self.is_happy
 
     def strall(self):
-        return "(Race: "+self.race + ", is_happy:" + str(self.is_happy) + ", preferences:" + str(self.preferences) + ")"
+        return "(Race: "+self.race + ", is_happy:" + str(self.is_happy) \
+                + ", nbr_like_pref:" + str(self.nbr_like_pref) + ")"
 
     def strsmall(self):
         return str(self.pk) + ' ' + self.race + ' ' + str(self.is_happy)
@@ -313,4 +325,3 @@ class Person:
 
     def __repr__(self):
         return str(self)
-

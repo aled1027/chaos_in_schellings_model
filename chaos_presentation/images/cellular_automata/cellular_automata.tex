@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{10pt}%
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{backgrounds,calc}
+
+% This shows the "vision" aspect.
+% Measure manhattan distance away from a node.
+
+
+\begin{document}
+
+\begin{tikzpicture}[background rectangle/.style={fill=olive},
+                            show background rectangle] 
+        \draw[step=0.5cm,color=black] (-2,-2) grid (1,1);
+        \node at (-1.75,+0.75) { };
+        \node at (-1.25,+0.75) { };
+        \node at (-0.75,+0.75) {3};
+        \node at (-0.25,+0.75) {2};
+        \node at (+0.25,+0.75) {3};
+        \node at (+0.75,+0.75) { };
+
+        \node at (-1.75,+0.25) { };
+        \node at (-1.25,+0.25) {3};
+        \node at (-0.75,+0.25) {2};
+        \node at (-0.25,+0.25) {1};
+        \node at (+0.25,+0.25) {2};
+        \node at (+0.75,+0.25) {3};
+
+        \node at (-1.75,-0.25) {3};
+        \node at (-1.25,-0.25) {2};
+        \node at (-0.75,-0.25) {1};
+        \node[white] at (-0.25,-0.25) {W};
+        \node at (+0.25,-0.25) {1};
+        \node at (+0.75,-0.25) {2};
+
+        \node at (-1.75,-0.75) { };
+        \node at (-1.25,-0.75) {3};
+        \node at (-0.75,-0.75) {2};
+        \node at (-0.25,-0.75) {1};
+        \node at (+0.25,-0.75) {2};
+        \node at (+0.75,-0.75) {3};
+
+        \node at (-1.75,-1.25) { };
+        \node at (-1.25,-1.25) { };
+        \node at (-0.75,-1.25) {3};
+        \node at (-0.25,-1.25) {2};
+        \node at (+0.25,-1.25) {3};
+        \node at (+0.75,-1.25) { };
+
+        \node at (-1.75,-1.75) { };
+        \node at (-1.25,-1.75) { };
+        \node at (-0.75,-1.75) { };
+        \node at (-0.25,-1.75) {3};
+        \node at (+0.25,-1.75) { };
+        \node at (+0.75,-1.75) { };
+\end{tikzpicture}
+\end{document}

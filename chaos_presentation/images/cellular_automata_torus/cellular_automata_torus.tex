@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{10pt}%
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{backgrounds,calc}
+
+% 3 examples of vision on a toral map
+
+\begin{document}
+
+\begin{tikzpicture}[background rectangle/.style={fill=olive},
+                            show background rectangle] 
+        \draw[step=0.5cm,color=black] (-2,-2) grid (1,1);
+
+        % ZE BLUE LINES
+
+        % horizontal top right
+        \draw[-,very thick,blue] (1,0.75) -- (0.25,0.75) node[anchor=north] {};
+        % vertical top right
+        \draw[-,very thick,blue] (0.75,1) -- (0.75,0.25) node[anchor=north] {};
+        % horizontal bottom left
+        \draw[-,very thick,blue] (-2,-1.75) -- (-1.75,-1.75) node[anchor=north] {};
+        % vertical bottom left
+        \draw[-,very thick,blue] (-1.75,-2) -- (-1.75,-1.75) node[anchor=north] {};
+
+        % ZE red LINES
+        % horizontal top right
+        \draw[-,very thick,red] (1.0,-1.25) -- (0.25,-1.25) node[anchor=north] {};
+        % vertical top right
+        \draw[-,very thick,red] (0.75,-.75) -- (0.75,-1.75) node[anchor=north] {};
+        \draw[-,very thick,red] (-2,0.25) -- (-1.75,0.25) node[anchor=north] {};
+
+        % ZE green LINES
+        % horizontal line
+        \draw[-,very thick,green] (-1.25,-0.25) -- (-0.25,-0.25) node[anchor=north] {};
+        % vertical line
+        \draw[-,very thick,green] (-.75,0.25) -- (-0.75,-0.75) node[anchor=north] {};
+
+        \node at (-1.75,+0.75) { };
+        \node at (-1.25,+0.75) { };
+        \node at (-0.75,+0.75) { };
+        \node at (-0.25,+0.75) { };
+        \node at (+0.25,+0.75) { };
+        \node[white] at (+0.75,+0.75) {W};
+
+        \node at (-1.75,+0.25) { };
+        \node at (-1.25,+0.25) { };
+        \node at (-0.75,+0.25) { };
+        \node at (-0.25,+0.25) { };
+        \node at (+0.25,+0.25) { };
+        \node at (+0.75,+0.25) { };
+
+        \node at (-1.75,-0.25) { };
+        \node at (-1.25,-0.25) { };
+        \node[white] at (-0.75,-0.25) {W};
+        \node at (-0.25,-0.25) { };
+        \node at (+0.25,-0.25) { };
+        \node at (+0.75,-0.25) { };
+
+        \node at (-1.75,-0.75) { };
+        \node at (-1.25,-0.75) { };
+        \node at (-0.75,-0.75) { };
+        \node at (-0.25,-0.75) { };
+        \node at (+0.25,-0.75) { };
+        \node at (+0.75,-0.75) { };
+
+        \node at (-1.75,-1.25) { };
+        \node at (-1.25,-1.25) { };
+        \node at (-0.75,-1.25) { };
+        \node at (-0.25,-1.25) { };
+        \node at (+0.25,-1.25) { };
+        \node[white] at (+0.75,-1.25) {W};
+
+        \node at (-1.75,-1.75) { };
+        \node at (-1.25,-1.75) { };
+        \node at (-0.75,-1.75) { };
+        \node at (-0.25,-1.75) { };
+        \node at (+0.25,-1.75) { };
+        \node at (+0.75,-1.75) { };
+\end{tikzpicture}
+\end{document}

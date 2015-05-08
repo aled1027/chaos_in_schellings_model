@@ -1,0 +1,44 @@
+% Behaviour of the stator voltage and the RMS-value of the stator
+% flux as a function of speed in scalar control.
+% Author: Erno Pentzin (2013)
+\documentclass{article}
+\usepackage{amsmath} 
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{10pt}%
+
+\begin{comment}
+:Title: Example of Sensitivity to Intial Conditions
+\end{comment}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+% horizontal axis
+\draw[->] (0,0) -- (6,0) node[anchor=north] {$x$-axis=time};
+
+% vertical axis
+\draw[] (0,0) -- (0,4) node[anchor=east] {$y$-axis=some};
+\draw[] (0,0) -- (0,3.6) node[anchor=east] {measurement of model};
+
+
+% curve 1
+\draw[green,thick] (0,0.2) parabola[bend at end] (6,2);
+
+% curve 2
+\draw[blue,thick] (0,0) parabola[bend at end] (6,3);
+
+% curve 3
+\draw[black,thick] (0,0.1) to [out=90,in=145] (6,1);
+
+% point out initial conditions and end conditions
+\draw[magenta] (0,0.1) node[anchor=east]{similar start};
+\draw[magenta] (0.7,2.4) node[anchor=west]{different paths};
+\draw[magenta] (6,2) node[anchor=west]{different ends};
+
+\end{tikzpicture}
+
+\end{document}

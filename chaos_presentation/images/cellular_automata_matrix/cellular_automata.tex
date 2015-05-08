@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{10pt}%
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{backgrounds,calc}
+
+% Have to use letters; not numbers in the middle.
+
+\begin{document}
+% \begin{tikzpicture}
+% % Have to use letters; not numbers in the middle.
+%     \draw[step=0.5cm,color=gray] (-2,-2) grid (2,2);
+%     \matrix[matrix of nodes,nodes={inner sep=0pt,text width=.5cm,align=center,minimum height=.5cm}]{
+%         \phantom{w} &   &   &   &   &   &   &   \\
+%         \phantom{w} &   &   &   &   &   &   &   \\
+%         \phantom{w} &   &   &   &   &   &   &   \\
+%         \phantom{w} &   &   &   & W &   &   &   \\
+%         \phantom{w} &   &   &   &   &   &   &   \\
+%         \phantom{w} &   &   &   &   &   &   &   \\
+%         \phantom{w} &   &   &   &   &   &   &   \\
+%         \phantom{w} &   &   &   &   &   &   &  \\};
+
+% \end{tikzpicture}
+
+\begin{tikzpicture}[background rectangle/.style={fill=olive},
+                            show background rectangle] 
+        \draw[step=0.5cm,color=black] (-2,-2) grid (1,1);
+        \node at (-1.75,+0.75) { };
+        \node at (-1.25,+0.75) { };
+        \node at (-0.75,+0.75) { };
+        \node at (-0.25,+0.75) {2};
+        \node at (+0.25,+0.75) { };
+        \node at (+0.75,+0.75) { };
+
+        \node at (-1.75,+0.25) { };
+        \node at (-1.25,+0.25) { };
+        \node at (-0.75,+0.25) {2};
+        \node at (-0.25,+0.25) {1};
+        \node at (+0.25,+0.25) {2};
+        \node at (+0.75,+0.25) { };
+
+        \node at (-1.75,-0.25) { };
+        \node at (-1.25,-0.25) {2};
+        \node at (-0.75,-0.25) {1};
+        \node[white] at (-0.25,-0.25) {W};
+        \node at (+0.25,-0.25) {1};
+        \node at (+0.75,-0.25) {2};
+
+        \node at (-1.75,-0.75) { };
+        \node at (-1.25,-0.75) { };
+        \node at (-0.75,-0.75) {2};
+        \node at (-0.25,-0.75) {1};
+        \node at (+0.25,-0.75) {2};
+        \node at (+0.75,-0.75) { };
+
+        \node at (-1.75,-1.25) { };
+        \node at (-1.25,-1.25) { };
+        \node at (-0.75,-1.25) { };
+        \node at (-0.25,-1.25) {2};
+        \node at (+0.25,-1.25) { };
+        \node at (+0.75,-1.25) { };
+
+        \node at (-1.75,-1.75) { };
+        \node at (-1.25,-1.75) { };
+        \node at (-0.75,-1.75) { };
+        \node at (-0.25,-1.75) { };
+        \node at (+0.25,-1.75) { };
+        \node at (+0.75,-1.75) { };
+\end{tikzpicture}
+\end{document}
