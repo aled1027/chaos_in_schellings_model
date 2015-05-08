@@ -60,11 +60,11 @@ if __name__=='__main__':
     t = SchellingCA(width=4, height=4, state=b, mode='rw')
 
     print(s)
-    for i in range(15):
+    for i in range(5):
         s.iterate()
         print(s)
-        print(s.print_races())
-        print()
+        #print(s.print_races())
+        #print('')
     logging.info('finishing orig')
 
     #print('---------------------------')

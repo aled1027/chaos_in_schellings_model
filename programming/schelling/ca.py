@@ -98,8 +98,10 @@ class SchellingCA:
             if cell == None:
                 self.unhappy_positions.discard((i,j))
                 self.happy_positions.discard((i,j))
+
                 self.empty_positions.add((i,j))
             else:
+                self.empty_positions.discard((i,j))
                 nbr_races = [nbr.race for nbr in self.get_neighbors(i, j)]
                 nbr_dict = {race: nbr_races.count(race) for race in self.races}
                 cell.update_happiness(nbr_dict)
@@ -192,6 +194,7 @@ class SchellingCA:
 
         best_dist = self.width * self.height
         best_pos = None
+        print(len(self.empty_positions), self.empty_positions)
         for p in self.empty_positions:
 
             nbr_races = [nbr.race for nbr in self.get_neighbors(p[0], p[1])]
@@ -212,7 +215,7 @@ class SchellingCA:
             return False
         else:
             self.state[best_pos[0]][best_pos[1]] = cell
-            logging.debug('moved someone from (%d,%d) to (%d,%d)' %(old_x, old_y, best_pos[0], best_pos[1]))
+            logging.debug('moved someone from (%d,%d) to (%d,%d)' % (old_x, old_y, best_pos[0], best_pos[1]))
             return True
 
     def get_neighbors(self,i,j):
@@ -236,6 +239,9 @@ class SchellingCA:
         2. Move that person
         3. Update everyone else's happiness.
         """
+        # TODO REMOVE REDUNDANCY
+        self.update_states_and_sets()
+        did_move = True
         did_move = self.move_someone()
         if (did_move == False):
             self.is_done = True
@@ -305,7 +311,6 @@ class Person:
             return False
 
         ratio = float(nbr_dict[self.race]) / float(num_neighbors)
-        logging.debug('this ratio should be a float %f' % ratio)
 
         if ratio >= self.nbr_like_pref:
             self.is_happy = True
