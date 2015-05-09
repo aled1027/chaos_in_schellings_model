@@ -92,7 +92,6 @@ class SchellingCA:
             - self.unhappy_positions
             - self.happy_positions
         """
-        logging.info('ca.py: update_states_and_sets')
         for index,cell in enumerate(self):
             i = int(index % self.height)
             j = int((index - i) / self.height)
@@ -136,7 +135,6 @@ class SchellingCA:
         else:
             logging.debug('Did not move anyone, no unhappy people')
             return False
-
         if did_move_someone is False:
             logging.debug('Did not move anyone. Could not find a happy place')
 
@@ -233,19 +231,9 @@ class SchellingCA:
         return [self.state[x][y] for (x,y) in nbr_coords if self.state[x][y] is not None]
 
     def iterate(self):
-        """
-        goes through one iteration of schelling's process.
-        1. Look at a list of unhappy persons. Pick one randomly.
-        2. Move that person
-        3. Update everyone else's happiness.
-        """
-        # TODO REMOVE REDUNDANCY
-        self.update_states_and_sets()
-        did_move = True
         did_move = self.move_someone()
-        if (did_move == False):
-            self.is_done = True
-        self.update_states_and_sets()
+        if did_move == True:
+            self.update_states_and_sets()
 
     def print_happiness(self):
         string_list = []

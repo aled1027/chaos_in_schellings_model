@@ -1,3 +1,5 @@
+- 1.32s for 10 trials with 50 iterations
+
 - individual amount of steps
     - no counter
 - compare random walk to random jump
