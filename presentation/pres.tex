@@ -38,8 +38,8 @@ Reed College \\
     I had the following questions:
     \begin{itemize}
         \item Under what conditions does Schelling's model begin to break down?
-        \item Keeping the neighbors preferences constant, how can we change the parameters such that the average similarity converges to difference values?
-        \item What affects the the average similaritity rate of convergence?
+        \item Keeping the agents' preferences constant, how can we change the parameters such that the average similarity converges to difference values?
+        \item What affects the the rate of convergence of the average similarity (amt. of segregation in system)?
     \end{itemize}
     My thought: let's change how the unhappy agents choose a new cell to live.
         \begin{itemize}
@@ -60,7 +60,7 @@ Reed College \\
                 \item Originally one agent wanted at least $\frac{1}{3}$ of neighbors to be similar.
                 \item And the other agent wanted at least $\frac{1}{2}$ of neighbors to be similar.
             \end{itemize}
-        \item If a agent's preferences are not met, then they are unhappy.
+        \item If an agent's preferences are not met, then they are unhappy.
         \item During each iteration of the model, an unhappy agent is randomly selected.
         \item<1>{Then the selected agent moves to the \textbf{nearest} empty cell such that they are happy.}
         \item<2>{\color[rgb]{0,0,1} Then the selected agent moves to the \textbf{nearest} empty cell such that they are happy.}
@@ -185,6 +185,7 @@ Reed College \\
     \\
     Ideas for further investigation:
     \begin{itemize}
+        \item Change max number of number steps an agent can take in their random walk.
         \item Change border conditions (in particular, make the border a torus instead of an edge)
         \item Inspired by Zach's talk: every $x$ iterations, force a happy person to move at least $y$ cells away from their place.  
         \item Try modeling socioeconomic inequality by giving agents a certain amount of steps they can take in their random walk (give some agents more steps than others).
@@ -226,6 +227,13 @@ Reed College \\
 
 \begin{frame}
     \frametitle{The Upshot}
+    \begin{itemize}
+        \item Need to do more work.
+        \item Tentative thinking: the random walk does not break Schelling's model
+        \item So the ``core'' idea of Schelling's model is robust.
+        \item ``core'' idea = preferences/happiness
+        \item ``non-core'' idea = movement procedure
+    \end{itemize}
 \end{frame}
 
 
