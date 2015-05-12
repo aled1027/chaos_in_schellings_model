@@ -1,10 +1,14 @@
-%\documentclass{beamer}
-\documentclass[11pt, handout]{beamer}
+\documentclass{beamer}
+% \documentclass[11pt, handout]{beamer}
 
 \usepackage{/home/alex/.latex/stylesheet}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
 \graphicspath{ {./images/} }
+
+\renewcommand<>{\item}[1]{\only#2{\beameroriginal{\item}{#1}}}
 
 \mode<presentation> {
     \usetheme{default}
@@ -13,7 +17,7 @@
     \setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
 
-\title[Short title]{Making Schelling's Model More Realistic} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[Short title]{Further Investigation into Schelling's Model} % The short title appears at the bottom of every slide, the full title is only on the title page
 \author{Alex Ledger} % Your name
 \institute[Reed College] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
@@ -26,72 +30,185 @@ Reed College \\
 \begin{document}
 
 \begin{frame}
-\titlepage 
+    \titlepage 
 \end{frame}
 
 \begin{frame}
     \frametitle{Goal}
+    I had the following questions:
     \begin{itemize}
-        \item Does Schelling's modeling some element of society?
-        \item Do properties of Schelling's model have parallel properties in society?
-        \item ???
+        \item Under what conditions does Schelling's model begin to break down?
+        \item Keeping the neighbors preferences constant, how can we change the parameters such that the average similarity converges to difference values?
+        \item What affects the the average similaritity rate of convergence?
     \end{itemize}
+    My thought: let's change how the unhappy agents choose a new cell to live.
+        \begin{itemize}
+            \item Classically, agents move to the nearest empty cell where they would be happy.
+            \item Let's try having the agents take a random walk.
+        \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{My Proposal}
-    \begin{itemize}
-        \item One unrealistic aspect of Schelling's model is that unhappy persons move to random cell.
-        \item The probability that they move to an adjacent cell is the same as the probability of moving to a cell far away?
-        \item Why? When we are unhappy, it is more likely that we would move to a nearby area than a far away area (stay near the extended family)
-        \item Instead of unhappy persons moving to a random cell uniformly, have them find a place where they would be happy via a \emph{random walk}
-    \end{itemize}
+    \frametitle{Recap of Schelling's Model}
+    \begin{enumerate}
+        \item Two types of agents (white and black) located on an $8 \times 8$ board.
+            \begin{itemize}
+                \item (picture a chessboard)
+            \end{itemize}
+        \item Each type of agent wants to have at least $x \%$ of their neighbors similar to them.
+            \begin{itemize}
+                \item Originally one agent wanted at least $\frac{1}{3}$ of neighbors to be similar.
+                \item And the other agent wanted at least $\frac{1}{2}$ of neighbors to be similar.
+            \end{itemize}
+        \item If a agent's preferences are not met, then they are unhappy.
+        \item During each iteration of the model, an unhappy agent is randomly selected.
+        \item<1>{Then the selected agent moves to the \textbf{nearest} empty cell such that they are happy.}
+        \item<2>{\color[rgb]{0,0,1} Then the selected agent moves to the \textbf{nearest} empty cell such that they are happy.}
+        \item<3>{\color[rgb]{0,0,1} Then the selected agent searches for a new cell where they would be happy via a \textbf{random walk}.}
+    \end{enumerate}
 \end{frame}
 
 \begin{frame}
     \frametitle{What is a random walk?}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Review of Schelling's Model}
-    My Implementation of Schelling's model:
-    \begin{enumerate}
-        \item Two types of people (white and black) located on an $n \times n$ board.
+    \begin{itemize}
+        \item After an agent is selected to move, the agent randomly selects a direction that they could move.
             \begin{itemize}
-                \item (picture a chessboard)
+                \item e.g. North, South, East West (updated appropriately at borders)
             \end{itemize}
-        \item Each type of person has a preference for who they like to live near.
-        \item If a person's preferences are not met, then they are unhappy.
-        \item During each iteration of the model, one unhappy person is randomly selected.
-        \item Then that person moves to a random, empty space such that they are happy.
-    \end{enumerate}
+        \item The agent then ``moves'' to the cell adjacent to their current position in the selected direction.
+        \item If the cell is empty and the agent is happy, then the agent ``settles'' in the cell and turn is over.
+        \item Otherwise the agent randomly selects a direction and moves to that cell, repeating the above steps.
+        \item Eventually the agent will either find a cell they like, or will have taken more than $100$ steps. 
+        \item If the agent takes more than $100$ steps, they return to their original cell and their turn is over.
+    \end{itemize}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Schelling's Model}
-    Fixed Parameters to Schelling's Model
-    \begin{enumerate}
-        \item Two races
-        \item Lattice, checkerboard space
-        \item Selecting a person to move randomly
-        \item Size of board
-        \item Selection of who gets to move
-    \end{enumerate}
+\begin{frame}[t]
+    \frametitle{Example of a Random Walk}
+
+    Suppose that {\color[rgb]{.34,.34,.34} W} is selected to move and wants $\geq \frac{1}{2}$ of neighbors to also be white. \\
+    \begin{columns}[t,onlytextwidth]
+
+    \column{.5\textwidth}
+    \begin{figure}
+        \center
+        The Random Walk:
+        \begin{enumerate}
+            \item Goes East.
+            \item Goes South.
+            \item Goes West.
+            \item Finds empty and happy cell. 
+        \end{enumerate}
+    \end{figure}
+
+    \column{.5\textwidth}
         \begin{figure}
             \center
-            \includegraphics[scale=0.7]{cellular_automata_vision/cellular_automata_vision.pdf}
-            \includegraphics[scale=0.7]{cellular_automata_trueedges/cellular_automata_trueedges.pdf}
+            \includegraphics[scale=1.2]{random_walk/random_walk.pdf}
         \end{figure}
+    \end{columns}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Analysis}
+    \frametitle{Measuring a state in Schelling's model}
+    We can measure a state by measuring the \emph{average similarity} or the \emph{average happiness}.
+    \begin{align*}
+        \text{Similarity(agent)} & = \frac{\text{\# neighbors of agent's race}}{\text{\# of neighbors}} \\
+        \\
+        \text{Similarity(state)} & = \text{Average similarity of all agents} \\
+        \\
+        \text{Happiness(state)}  & = \frac{\text{\# happy agents}}{\text{\# total agents}} 
+    \end{align*}
+    Similarity gives you the amount of segregation in the system.
+
+        
+
+    \end{frame}
+
+\begin{frame}
+    \frametitle{Results}
+
+    \begin{columns}[t,onlytextwidth]
+
+        
+    \column{.3\textwidth}
+        \footnotesize
+        \begin{itemize}
+            \item Initialize a random state.
+            \item Run the model 50 iterations.
+            \item Record average similarity and average happiness at each iteration.
+            \item Ran 25 trials and plotted averages (see right).
+            \item The nearest and rw trials used the same initial states.
+        \end{itemize}
+        \normalsize
+
+    \column{.6\textwidth}
+        \begin{figure}[t]
+            \includegraphics[scale=0.5]{data_images/3_5.png}
+        \end{figure}
+
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}
+    \vspace{-15.5pt}
+    \begin{columns}[t,onlytextwidth]
+
+    \column{.1\textwidth}
+    \begin{figure}
+        \begin{subfigure}[b]{0.3\textwidth}
+            \includegraphics[scale=0.35]{data_images/3_3.png}
+        \end{subfigure}
+
+        \begin{subfigure}[b]{0.3\textwidth}
+            \includegraphics[scale=0.35]{data_images/3_4.png}
+        \end{subfigure}
+    \end{figure}
+
+    \column{.7\textwidth}
+    \begin{figure}
+        \begin{subfigure}[b]{0.3\textwidth}
+            \includegraphics[scale=0.35]{data_images/3_6.png}
+        \end{subfigure}
+
+        \begin{subfigure}[b]{0.3\textwidth}
+            \includegraphics[scale=0.35]{data_images/3_7.png}
+        \end{subfigure}
+    \end{figure}
+    \end{columns}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Conclusions and Further Questions}
+    \frametitle{What results was I looking for?}
+    So unfortunately, I didn't find any parameters for which the nearest model and random walk model exhibited different behavior.
+    \begin{itemize}
+        \item Change border conditions (in particular, make the border a torus instead of an edge)
+        \item Inspired by Zach's talk: every $x$ iterations, force a happy person to move at least $y$ cells away from their place.  
+        \item Try modeling socioeconomic inequality by giving agents a certain amount of steps they can take in their random walk (give some agents more steps than others).
+        \item Try reversing Schelling's model. Instead of agent's desiring a particular composition of neighbors, neighbors have a desire about whether or not they want to live by you. 
+            \begin{itemize}
+                \item Would perhaps model living near sex offenders/felons/sexism - phenomena with outward effects)
+            \end{itemize}
+    \end{itemize}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Some philosphy}
+    \begin{itemize}
+        \item Interesting that making Schelling's model more realistic didn't change the results. 
+        \item I also think that adding the random walk is a \emph{huge} change to Schelling's model.
+            \begin{itemize}
+                \item The model is no longer nondeterministic. 
+                \item Agents may never
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Conclusions and Further Investigations}
+\end{frame}
 
 \end{document} 
 

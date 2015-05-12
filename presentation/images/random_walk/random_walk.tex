@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{10pt}%
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{backgrounds,calc}
+
+% 3 examples of vision on a toral map
+
+\begin{document}
+
+\begin{tikzpicture}[background rectangle/.style={fill=olive},
+                            show background rectangle] 
+        \draw[step=0.5cm,color=black] (-2,-2) grid (1,1);
+
+        \definecolor{light-gray}{gray}{0.65}
+
+
+        \node at (-1.75,+0.75) { };
+        \node at (-1.25,+0.75) { };
+        \node at (-0.75,+0.75) { };
+        \node at (-0.25,+0.75) { };
+        \node at (+0.25,+0.75) { };
+        \node at (+0.75,+0.75) { };
+
+        \node at (-1.75,+0.25) { };
+        \node at (-1.25,+0.25) { };
+        \node at (-0.75,+0.25) { };
+        \node at (-0.25,+0.25) { };
+        \node at (+0.25,+0.25) { };
+        \node at (+0.75,+0.25) { };
+
+        \node at (-1.75,-0.25) { };
+        \node at (-1.25,-0.25) { };
+        \node[light-gray] at (-0.75,-0.25) {W};
+        \node at (-0.25,-0.25) {B};
+        \node at (+0.25,-0.25) { };
+        \node at (+0.75,-0.25) { };
+
+        \node at (-1.75,-0.75) { };
+        \node at (-1.25,-0.75) { };
+        \node[light-gray] at (-0.75,-0.75) {W};
+        \node at (-0.25,-0.75) { };
+        \node at (+0.25,-0.75) {B};
+        \node at (+0.75,-0.75) { };
+
+        \node at (-1.75,-1.25) { };
+        \node[white] at (-1.25,-1.25) {W};
+        \node at (-0.75,-1.25) { };
+        \node at (-0.25,-1.25) { };
+        \node at (+0.25,-1.25) { };
+        \node at (+0.75,-1.25) { };
+
+        \node at (-1.75,-1.75) { };
+        \node at (-1.25,-1.75) { };
+        \node at (-0.75,-1.75) { };
+        \node at (-0.25,-1.75) { };
+        \node at (+0.25,-1.75) { };
+        \node at (+0.75,-1.75) { };
+
+        % ZE green LINES
+        \draw[->,thick,blue] (-0.75,-0.25) -- (-0.25,-0.25) node[anchor=north] {};
+        \draw[->,thick,blue] (-0.25,-0.25) -- (-0.25,-0.75) node[anchor=north] {};
+        \draw[->,thick,blue] (-0.25,-0.75) -- (-0.75,-0.75) node[anchor=north] {};
+\end{tikzpicture}
+\end{document}
