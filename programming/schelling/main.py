@@ -4,75 +4,104 @@ import csv
 import logging
 import random
 
-def c_random(width, height, low, high):
+def c_random(width, height, low, high, _max_walking_distance1, _max_walking_distance2):
     ret = []
     for i in range(width):
         li = []
         for j in range(height):
             r = random.randint(1,3)
             if r == 1:
-                li.append(Person(nbr_like_pref=low, race='black', pk=i+j))
+                li.append(Person(nbr_like_pref=low, race='black', pk=i+j, max_walking_distance = _max_walking_distance1))
             elif r == 2:
-                li.append(Person(nbr_like_pref=high, race='white', pk=i+j))
+                li.append(Person(nbr_like_pref=high, race='white', pk=i+j, max_walking_distance = _max_walking_distance2))
             else:
                 li.append(None)
         ret.append(li)
     return ret
 
-if __name__=='__main__':
-    logging.basicConfig(filename='schelling.log', level=logging.INFO, format='%(levelname)-8s %(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
-    logging.info('starting')
-
+def different_max_walk_experiment():
     # INPUTS
-    num_trials = 15
+    num_trials = 50
+    num_iterations = 50
+    width = 8
+    height = 8
+    low = 0.5
+    h = 0.5
+
+    max_walk_list = [(5,10), (5,15), (5,20), (5,50), (10,10), (10,15), (10,20), (10,50)]
+
+
+    for max_walk1, max_walk2 in max_walk_list:
+        with open('rw_max_data/nearest_data_%d.csv' % max_walk, 'w') as csvfile:
+            csvwriter = csv.writer(csvfile, delimiter=',')
+            csvwriter.writerow(['max_walking_distance', max_walk])
+
+            # make header for csv file
+            l = ['trial_number']
+            k = []
+            for i in range(num_iterations+1):
+                l.append('sim_iter_%d' % i)
+                k.append('hap_iter_%d' % i)
+            csvwriter.writerow(l + k)
+
+            # run the simulation
+            for i in range(num_trials):
+                logging.info('starting trial %d' % i)
+                a = c_random(width, height, low, h, max_walk1, max_walk2)
+                s = SchellingCA(width=width, height=height, state=a, mode='nearest')
+                s_avg_sim = [i, s.avg_similarity]
+                s_avg_hap = [s.avg_happiness]
+
+                for j in range(num_iterations):
+                    s.iterate()
+                    s_avg_sim.append(s.avg_similarity)
+                    s_avg_hap.append(s.avg_happiness)
+
+                csvwriter.writerow(s_avg_sim + s_avg_hap)
+
+
+def max_walk_experiment():
+    # INPUTS
+    num_trials = 50
     num_iterations = 50
     width = 8
     height = 8
     low = .3
-    high = [.3, .4, .5, .6, .7]
+    h = 0.5
 
-    for h in high:
-        with open('data/nearest_data_%f_%f.csv' % (low,h), 'w') as nearest_csvfile:
-            with open('data/rw_data_%f_%f.csv' % (low,h), 'w') as rw_csvfile:
+    max_walk_list = [3,5,7,10,15,20,30,50,75,100]
 
-                nearest_csvwriter = csv.writer(nearest_csvfile, delimiter=',')
-                rw_csvwriter = csv.writer(rw_csvfile, delimiter=',')
+    for max_walk in max_walk_list:
+        with open('rw_max_data/nearest_data_%d.csv' % max_walk, 'w') as csvfile:
+            csvwriter = csv.writer(csvfile, delimiter=',')
+            csvwriter.writerow(['max_walking_distance', max_walk])
 
+            # make header for csv file
+            l = ['trial_number']
+            k = []
+            for i in range(num_iterations+1):
+                l.append('sim_iter_%d' % i)
+                k.append('hap_iter_%d' % i)
+            csvwriter.writerow(l + k)
 
-                # make header for csv file
-                l = ['trial_number']
-                k = []
-                for i in range(num_iterations+1):
-                    l.append('sim_iter_%d' % i)
-                    k.append('hap_iter_%d' % i)
-                nearest_csvwriter.writerow(l + k)
-                rw_csvwriter.writerow(l + k)
+            # run the simulation
+            for i in range(num_trials):
+                logging.info('starting trial %d' % i)
+                a = c_random(width, height, low, h, max_walk, max_walk)
+                s = SchellingCA(width=width, height=height, state=a, mode='nearest')
+                s_avg_sim = [i, s.avg_similarity]
+                s_avg_hap = [s.avg_happiness]
 
-                # run the simulation
-                for i in range(num_trials):
-                    logging.info('starting trial %d' % i)
-                    a = c_random(width, height, low, h)
-                    b = copy.deepcopy(a)
+                for j in range(num_iterations):
+                    s.iterate()
+                    s_avg_sim.append(s.avg_similarity)
+                    s_avg_hap.append(s.avg_happiness)
 
-                    s = SchellingCA(width=width, height=height, state=a, mode='nearest')
-                    s_avg_hap = [s.avg_happiness]
+                csvwriter.writerow(s_avg_sim + s_avg_hap)
 
-                    t = SchellingCA(width=width, height=height, state=b, mode='rw')
-                    s_avg_sim = [i, s.avg_similarity]
-                    t_avg_sim = [i, t.avg_similarity]
-                    t_avg_hap = [t.avg_happiness]
-
-                    for j in range(num_iterations):
-                        s.iterate()
-                        s_avg_sim.append(s.avg_similarity)
-                        s_avg_hap.append(s.avg_happiness)
-
-                        t.iterate()
-                        t_avg_sim.append(s.avg_similarity)
-                        t_avg_hap.append(s.avg_happiness)
-
-                    nearest_csvwriter.writerow(s_avg_sim + s_avg_hap)
-                    rw_csvwriter.writerow(s_avg_sim + s_avg_hap)
-
+if __name__=='__main__':
+    logging.basicConfig(filename='schelling.log', level=logging.INFO, format='%(levelname)-8s %(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+    logging.info('starting')
+    max_walk_experiment()
     logging.info('finishing')
 
