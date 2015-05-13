@@ -40,8 +40,8 @@ def different_max_walk_experiment():
             l = ['trial_number']
             k = []
             for i in range(num_iterations+1):
-                l.append('sim_iter_%d' % i)
-                k.append('hap_iter_%d' % i)
+                l.append(i)
+                k.append(i)
             csvwriter.writerow(l + k)
 
             # run the simulation
@@ -69,13 +69,12 @@ def max_walk_experiment():
     low = .3
     h = 0.5
 
-    max_walk_list = [3,5,7,10,15,20,30,50,75,100]
+    #max_walk_list = [3,5,7,10,15,20,30,50,75,100]
+    max_walk_list = [3]
 
     for max_walk in max_walk_list:
-        with open('rw_max_data/nearest_data_%d.csv' % max_walk, 'w') as csvfile:
+        with open('data/rw_max_data/rw_%d.csv' % max_walk, 'w') as csvfile:
             csvwriter = csv.writer(csvfile, delimiter=',')
-            csvwriter.writerow(['max_walking_distance', max_walk])
-
             # make header for csv file
             l = ['trial_number']
             k = []
