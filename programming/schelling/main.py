@@ -69,8 +69,7 @@ def max_walk_experiment():
     low = .3
     h = 0.5
 
-    #max_walk_list = [3,5,7,10,15,20,30,50,75,100]
-    max_walk_list = [3]
+    max_walk_list = [3,5,7,10,15,20,30,50,75,100]
 
     for max_walk in max_walk_list:
         with open('data/rw_max_data/rw_%d.csv' % max_walk, 'w') as csvfile:
@@ -87,7 +86,7 @@ def max_walk_experiment():
             for i in range(num_trials):
                 logging.info('starting trial %d' % i)
                 a = c_random(width, height, low, h, max_walk, max_walk)
-                s = SchellingCA(width=width, height=height, state=a, mode='nearest')
+                s = SchellingCA(width=width, height=height, state=a, mode='rw')
                 s_avg_sim = [i, s.avg_similarity]
                 s_avg_hap = [s.avg_happiness]
 
