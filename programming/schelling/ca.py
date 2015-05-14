@@ -11,7 +11,7 @@ class SchellingCA:
     """
     TODO document what each parameter is
     """
-    def __init__(self, width=8, height=8, races=None, state=None, moving_radius_function=None, mode='rw'):
+    def __init__(self, width=8, height=8, races=None, state=None, moving_radius_function=None, mode='rw', stay_at_end_rw=False):
         self.width = width
         self.height = height
         self.is_done = False
@@ -23,6 +23,7 @@ class SchellingCA:
         self.state = state if state else [[None]*self.width]*self.height
         self.races = races if races else ['white','black']
         self.mode = mode
+        self.stay_at_end_rw = stay_at_end_rw
         if moving_radius_function:
             self.moving_radius_function = moving_radius_function
         else:
@@ -169,7 +170,6 @@ class SchellingCA:
             if self.state[new_x][new_y] is not None:
                 continue
 
-            # VERIFY THAT IT'S NOT COUNTING ITSELF WHEN CALCULATING ITS NEIGHBORS
             nbr_races = [nbr.race for nbr in self.get_neighbors(new_x, new_y)]
             nbr_dict = {r: nbr_races.count(r) for r in self.races}
             cell.update_happiness(nbr_dict)
@@ -181,7 +181,10 @@ class SchellingCA:
 
 
         else:
-            self.state[old_x][old_y] = cell
+            if self.stay_at_end_rw and self.state[new_x][new_y] == None:
+                self.state[new_x][new_y] = cell
+            else:
+                self.state[old_x][old_y] = cell
             logging.debug('Did not move anyone. Tried to move: (%d,%d)' % (old_x,old_y))
             return False
 
@@ -284,7 +287,6 @@ class Person:
         # the person wants for at least x percent of their neighbors to be like them.
 
     def __init__(self, nbr_like_pref=0.0, race='white', is_happy=False, pk=0, max_walking_distance=100):
-        # TODO add max walking distance
         self.nbr_like_pref = nbr_like_pref
         self.race = race
         self.is_happy = is_happy
