@@ -9,7 +9,7 @@ def c_random(width, height, low, high, _max_walking_distance1, _max_walking_dist
     for i in range(width):
         li = []
         for j in range(height):
-            r = random.randint(1,3)
+            r = random.randint(1,4)
             if r == 1:
                 li.append(Person(nbr_like_pref=low, race='black', pk=i+j, max_walking_distance = _max_walking_distance1))
             elif r == 2:
@@ -66,13 +66,14 @@ def max_walk_experiment():
     num_iterations = 50
     width = 8
     height = 8
-    low = .3
-    h = 0.5
+    low  = 0.3
+    high = 0.5
 
-    max_walk_list = [3,5,7,10,15,20,30,50,75,100]
+    black_max_walk_list = [3,5,10,15,20,30,50,75,100]
+    white_max_walk = 10
 
-    for max_walk in max_walk_list:
-        with open('data/rw_max_data/rw_%d.csv' % max_walk, 'w') as csvfile:
+    for black_max_walk in black_max_walk_list:
+        with open('data/rw_mixed_walk_diff_prefs_data/rw_%d.csv' % black_max_walk, 'w') as csvfile:
             csvwriter = csv.writer(csvfile, delimiter=',')
             # make header for csv file
             l = ['trial_number']
@@ -85,7 +86,7 @@ def max_walk_experiment():
             # run the simulation
             for i in range(num_trials):
                 logging.info('starting trial %d' % i)
-                a = c_random(width, height, low, h, max_walk, max_walk)
+                a = c_random(width, height, low, high, black_max_walk, white_max_walk)
                 s = SchellingCA(width=width, height=height, state=a, mode='rw')
                 s_avg_sim = [i, s.avg_similarity]
                 s_avg_hap = [s.avg_happiness]

@@ -1,3 +1,12 @@
+# NEW
+- TODO: DECOMPOSE HAPPINESS OF WHITE PEOPLE AND BLACK PEOPLE
+
+- line misses discrete changes. try to use scatter plot instead of line plot
+    - getting artifacts of matplotlib's plotting engine?
+
+
+
+### OLLLLD
 - 1.32s for 10 trials with 50 iterations
 
 - individual amount of steps

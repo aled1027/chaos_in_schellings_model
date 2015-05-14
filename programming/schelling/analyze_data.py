@@ -14,7 +14,7 @@ def save_subplots():
     first = True
     for max_walk_dist,coord in zip(max_walk_dist_list,coords):
         # import data and get the dataframes so we can work with them
-        df = pd.read_csv('data/rw_max_data/rw_%d.csv' % max_walk_dist)
+        df = pd.read_csv('data/rw_mixed_walk_diff_prefs_data/rw_%d.csv' % max_walk_dist)
         sim_cols = ['sim_iter_%d' % i for i in range(50)]
         hap_cols = ['hap_iter_%d' % i for i in range(50)]
 
@@ -34,19 +34,18 @@ def save_subplots():
         hap_means_df    = hap_means_df.set_index([range(50)])
         hap_std_df      = hap_std_df.set_index([range(50)])
 
-
         # combine the means and std dataframes
         all_df = sim_means_df.join(sim_std_df).join(hap_means_df).join(hap_std_df)
         all_df = all_df.set_index([range(50)])
 
         # plot 'em
         # matplot subplot
-        p = all_df.plot(title='max steps = %d' % max_walk_dist, ax=axes[coord[0], coord[1]])
+        p = all_df.plot(title='max black steps = %d' % max_walk_dist, ax=axes[coord[0], coord[1]])
         p.axis([0,50,0,1])
         p.legend().set_visible(False)
 
-    plt.suptitle('How Changes in Max Walking Distance Affect Similarity and Happiness', size=14)
+    plt.suptitle('Max White Steps = 10, Prefs = (0.3, 0.5)', size=14)
     plt.subplots_adjust(top=0.85)
-    plt.savefig('data/rw_max_data/images/the_fig.png')
+    plt.savefig('data/rw_mixed_walk_diff_prefs_data/images/rw_mixed_walk_same_prefs.png')
 
 save_subplots()
