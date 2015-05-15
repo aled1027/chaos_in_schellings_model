@@ -1,7 +1,7 @@
 \documentclass[11pt,twoside]{amsart}
 \usepackage{/home/alex/.latex/stylesheet}
 \usepackage{graphicx}
-% \usepackage{hyperref}
+\usepackage{hyperref}
 \usepackage{caption}
 \usepackage{subcaption}
 \graphicspath{ {./images/} }
@@ -39,8 +39,8 @@ Second, we wish to add to the tools for analyzing the question: to what extent c
 We assume the reader is familiar with the ideas of complex systems, emergent behavior and cellular automata to the extent that one would learn in Mark Bedau's Philosophy of Computation course. 
 
 \section{Review of Schelling's Model}
-Schelling's model is a cellular automata presented by Schelling in a 1971 paper \cite{schelling}. 
-It is meant to model segregation between groups of people of different interest. 
+Schelling's model is a cellular automata presented by Schelling in a 1978 paper \cite{schelling}. 
+It is meant to model segregation between groups of people of different interests. 
 
 In the original model, Schelling uses pennies and dimes to represent two classes of people. 
 For simplification of the idea, we simply refer to the two classes as white agents and black agents. 
@@ -148,17 +148,29 @@ On the other hand, the value that the average similarity converges to in the nea
 
 Figures other than figure \ref{fig:nearest_vs_rw} do not compare the nearest model to the rw model. 
 Figure \ref{fig:no_stay_black} and figure \ref{fig:no_stay_white} have the random walk setting such that if an agent has an unsuccessful random walk, the agent returns to their original position. 
-These two figures address the difference between changing length of the random walk for white agents and black agents. 
-
+These two figures address the difference between changing the length of the random walk for white agents and black agents. 
+Figure \ref{fig:no_stay_black} and figure \ref{fig:no_stay_white} and their subplots all look remarkably similar.
+This result weakly suggests that the maximum number of steps that agents take in their random walk, in the no stay random walk model, does not have significant effect on the average similarity.
 
 Figure \ref{fig:stay_black} should be compared to \ref{fig:no_stay_black}. In figure \ref{fig:stay_black} at the end of their random walk, and in figure \ref{fig:no_stay_black} the agents do not stay at the end of a random walk - they return to their original position.
+The subplots of both figure \ref{fig:stay_black} and \ref{fig:no_stay_black} are remarkably similar. 
+This suggests that the nature of the random walk, if agents stay or return at the end, have little effect on segregation. 
+It should be noted that for this result, we did not tabulate the number of the agents that exhausted their random walk. 
+It is possible that most of the agents found a cell where they would be happy before exhausting their alloted number of steps. 
+In this case, it wouldn't matter what the end behavior of the random walk is because it is never relevant. 
 
 Figure \ref{fig:stay_black_decomposed} is another graphical representation of the same model as \ref{fig:stay_black}. 
 In figure \ref{fig:stay_black_decomposed}, the average happiness metric is decomposed into the average happiness of whites and the average happiness of blacks.
+We see in figure \ref{fig:stay_black_decomposed} that the black agents are on average happier than the white agents indepdently of the number of steps that the black agents can take. 
+This is likely simple due to the fact that the whites have a lower neighbor preference, that is a lower threshold for being happy, compared to the whites. 
+A good further investigation here would be to set the preferences to the same value, try setting them both to $0.3$ and then both to $0.5$ and see if the maximum number of steps in the random walk then effects happiness. 
+In fact, this is just decomposing the happiness of figure \ref{fig:rw_same_prefs}.
 
 In figure \ref{fig:rw_same_prefs}, both white agents and black agents have the same neighbor preferences, ($0.5$), but the races have different maximum random walk lengths. Figure \ref{fig:rw_same_prefs} should be compared to the random walk lines of \ref{fig:nearest_vs_rw}. In figure \ref{fig:nearest_vs_rw}, the agents have different neighbor preferences (black has $0.3$ and white has $0.5$). 
+Compared to figure \ref{fig:nearest_vs_rw}, the average similarity in figure \ref{fig:rw_same_prefs} increases more (to $0.80$ compare) as the preferences of the white agents increase. 
+This suggests that higher preference ratios (i.e. higher selectivity) leads to greater average similarity (i.e. greater segregation) - an intuitive result.
 
-Figure \ref{fig:no_stay_black} and figure \ref{fig:no_stay_white} address stay and no stay at the end of random walk setting.
+
     \begin{figure}[p]
         \center
         \includegraphics[scale=0.60]{compare_nearest_rw.png}
@@ -195,7 +207,7 @@ Figure \ref{fig:no_stay_black} and figure \ref{fig:no_stay_white} address stay a
         \center
         \includegraphics[scale=0.60]{stay_at_end_rw_change_black_max_decompose_happiness.png}
         \includegraphics[scale=0.60]{stay_at_end_rw_change_black_max_decompose_happiness_legend.png}
-        \caption{Same as figure \ref{fig:stay_black}, but we graph the happiness of white agents and black agents separately.}
+        \caption{Same as figure \ref{fig:stay_black}, but we graph the average happiness of white agents and black agents separately.}
         \label{fig:stay_black_decomposed}
     \end{figure}
 
@@ -222,8 +234,31 @@ Figure \ref{fig:no_stay_black} and figure \ref{fig:no_stay_white} address stay a
         \item Change preferences of models over time based on composition of environment. 
         \item Incoroporate an agent's memory. Maybe someone who lived in mixed race environment for a while will be less racist. And vice versa.
     \end{enumerate}
-\section{Analysis}
 
+\section{Conclusion}
+Unfortunately given those results, we cannot form any strong conclusions about the nature of schelling's model.
+We can however, refine our hypothesis and suggests methods of investigations.
+
+We hypothesize that the core aspect of the Schelling's model is the preference ratios and the fact that agents have a happiness property.
+Despite all of the fine tuning and parameter sweeping of parameters related to the movement procedure of agents, Schellng's model never lost its robust segregation: this is particuarly evident in the graphs where standard deviation is plotted. 
+Note that the standard deviation is quite low, despite doing 25 trials with random initial configurations. 
+Even in data that was not presented in this report, we observed the same robust, low standard deviation when sweeping over paramters affecting the movement procedure. 
+We therefore think that the core part of Schelling's model - the part that gives the model its robustness - is the preference ratios and agents being unhappy. 
+What is important is that agents are unhappy in some situations, and that unhappy agents do something about their unhappiness; it's less important how the agents do.
+
+In order to investigate this hypothesis, we suggest the following:
+\begin{itemize}
+    \item Come up with more radical movement procedures and see if the segregation still happens consistently.
+    \item Try coming up with slight changes to the preference/happiness parts of Schelling's model. See if segregation still happens consistently.
+\end{itemize}
+
+Another intesting investigation that we would be interested in seeing is the reversal of Schelling's model.
+Instead of agents only reacting to their environment (i.e. agents being happy/unhappy due to the composition of their neighbors), what if agents were a product of their environment, like certain environments activated and disactivated certain traits of the agents, similar to a biological simulation. 
+We suppose that in effect what we are getting at is how can we transform Schelling's model into using traits and evolution?
+We are particularly interested in seeing if there would be robust results in the transformation, and more interestingly, if there are robust results, to what extent are they dependent on the preferences/happiness of cell as opposed to the movement procedure, or other auxilliary procedures, involved.
+It would be our hypothesis that in such a simulation, the auxilliary procedures would not be the core aspect of the model, just like in Schelling's model.
+
+In conclusion, the core property that Schelling's model robust is property that agents have preferences and that agents do something about their unhappiness, as opposed to the auxilliary procedures such as the movement procedure. 
 \printbibliography
 
 \end{document}
